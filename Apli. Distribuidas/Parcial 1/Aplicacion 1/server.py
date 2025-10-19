@@ -1,102 +1,109 @@
 import socket
-import threading
-from datetime import datetime
-import signal
-import sys
+import select
+import time
 
-HOST = '127.0.0.1'
-PORT = 12346
-BACKUP_SERVER = ('127.0.0.1', 12349)
-clientes_activos = 0
-MAX_CLIENTES = 1
-server_socket = None
-
-def hora_actual():
-    return datetime.now().strftime("[%H:%M:%S]")
-
-def procesar_operacion(data):
-    try:
-        partes = data.decode().strip().split(',')
-        op = partes[0]
-        a = float(partes[1])
-        b = float(partes[2])
-        print(f"{hora_actual()} [>] Instrucción recibida: {op},{a},{b}")
-
-        if op == 's':
-            resultado = a + b
-        elif op == 'r':
-            resultado = a - b
-        elif op == 'm':
-            resultado = a * b
-        elif op == 'd':
-            resultado = a / b if b != 0 else "Error: división por cero"
+def calculadora(op, num, num2):
+    if op == 's':
+        return num + num2
+    elif op == 'r':
+        return num - num2
+    elif op == 'm':
+        return num * num2
+    elif op == 'd':
+        if num2 != 0:
+            return num / num2
         else:
-            resultado = "Operación no válida"
+            return "Error: División por cero"
+    else:
+        return "Error: Operación inválida"
 
-        print(f"{hora_actual()} [<] Resultado devuelto: {resultado}")
-        return str(resultado)
-    except Exception as e:
-        return f"Error: {e}"
+server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+server_socket.bind(('localhost', 12345))
+server_socket.listen(5)
+server_socket.setblocking(False)
+print("Servidor escuchando en el puerto 12345...")
 
-def manejar_cliente(conn, addr):
-    global clientes_activos
-    clientes_activos += 1
-    print(f"{hora_actual()} [+] Cliente conectado desde {addr}. Clientes activos: {clientes_activos}")
+busy = False
+current_client = None
+client_data = {}
 
-    try:
-        data = conn.recv(1024)
-        if not data:
-            return
-
-        if clientes_activos > MAX_CLIENTES:
-            print(f"{hora_actual()} [!] Servidor ocupado. Enviando al servidor secundario...")
-            try:
-                with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as backup:
-                    backup.settimeout(2)
-                    backup.connect(BACKUP_SERVER)
-                    backup.sendall(data)
-                    resultado = backup.recv(1024).decode()
-                    print(f"{hora_actual()} [<] Resultado recibido del secundario: {resultado}")
-                    conn.send(resultado.encode())
-            except Exception as e:
-                print(f"{hora_actual()} [!] Error al conectar con el secundario: {e}")
-                conn.send(f"Error: Servidor secundario no disponible".encode())
-        else:
-            resultado = procesar_operacion(data)
-            conn.send(resultado.encode())
-    except Exception as e:
-        print(f"{hora_actual()} [!] Error con {addr}: {e}")
-    finally:
-        conn.close()
-        clientes_activos -= 1
-        print(f"{hora_actual()} [-] Conexión cerrada con {addr}. Clientes activos: {clientes_activos}")
-
-def cerrar_servidor(signum, frame):
-    print(f"{hora_actual()} [i] Cerrando servidor principal...")
-    if server_socket:
-        server_socket.close()
-    print(f"{hora_actual()} [i] Servidor principal cerrado.")
-    sys.exit(0)
-
-def iniciar_servidor():
-    global server_socket
-    server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
-    try:
-        server_socket.bind((HOST, PORT))
-        server_socket.listen(5)
-        print(f"{hora_actual()} Servidor principal escuchando en {HOST}:{PORT}\n")
-    except socket.error as e:
-        print(f"{hora_actual()} [!] Error al iniciar el servidor: {e}")
-        sys.exit(1)
-
-    signal.signal(signal.SIGINT, cerrar_servidor)
-
+try:
+    sockets_to_monitor = [server_socket]
+    
     while True:
-        try:
-            conn, addr = server_socket.accept()
-            threading.Thread(target=manejar_cliente, args=(conn, addr), daemon=True).start()
-        except KeyboardInterrupt:
-            cerrar_servidor(None, None)
+        readable, _, _ = select.select(sockets_to_monitor, [], [], 1.0)
+        
+        for sock in readable:
+            if sock is server_socket:
+                client_socket, addr = server_socket.accept()
+                client_socket.setblocking(False)
+                print(f"Conexión intentada de {addr}")
+                
+                if busy:
+                    print(f"Servidor ocupado, redirigiendo a {addr}")
+                    try:
+                        client_socket.send("REDIRECT 127.0.0.1:12349".encode('utf-8'))
+                        # Esperar brevemente para asegurar que el mensaje se envíe
+                        time.sleep(0.01)
+                    except socket.error:
+                        print(f"Error al enviar redirección a {addr}")
+                    finally:
+                        client_socket.close()
+                else:
+                    print(f"Conexión aceptada de {addr}")
+                    current_client = client_socket
+                    busy = True
+                    client_data[client_socket] = ""
+                    sockets_to_monitor.append(client_socket)
+            else:
+                try:
+                    chunk = sock.recv(1024)
+                    if not chunk:
+                        print(f"Cliente {sock.getpeername()} desconectado")
+                        sock.close()
+                        sockets_to_monitor.remove(sock)
+                        if sock is current_client:
+                            busy = False
+                            current_client = None
+                        del client_data[sock]
+                    else:
+                        client_data[sock] += chunk.decode('utf-8')
+                        if ',' in client_data[sock] and client_data[sock].count(',') == 2:
+                            data = client_data[sock]
+                            print(f"Datos recibidos: {data}")
+                            try:
+                                op, num_str, num2_str = data.split(',')
+                                num = float(num_str)
+                                num2 = float(num2_str)
+                                result = calculadora(op, num, num2)
+                            except ValueError:
+                                result = "Error: Formato de datos inválido"
+                            
+                            try:
+                                sock.send(str(result).encode('utf-8'))
+                                print(f"Resultado enviado: {result}")
+                            except socket.error:
+                                print(f"Error al enviar resultado a {sock.getpeername()}")
+                            sock.close()
+                            sockets_to_monitor.remove(sock)
+                            if sock is current_client:
+                                busy = False
+                                current_client = None
+                            del client_data[sock]
+                except socket.error as e:
+                    print(f"Error en cliente {sock.getpeername()}: {e}")
+                    sock.close()
+                    sockets_to_monitor.remove(sock)
+                    if sock is current_client:
+                        busy = False
+                        current_client = None
+                    del client_data[sock]
 
-if __name__ == "__main__":
-    iniciar_servidor()
+except KeyboardInterrupt:
+    print("\nServidor detenido.")
+    if current_client:
+        current_client.close()
+    for sock in sockets_to_monitor:
+        if sock is not server_socket:
+            sock.close()
+    server_socket.close()

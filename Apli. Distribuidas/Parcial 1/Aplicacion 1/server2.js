@@ -24,7 +24,7 @@ const server = net.createServer((socket) => {
       case 'r': resultado = a - b; break;
       case 'm': resultado = a * b; break;
       case 'd': resultado = b !== 0 ? a / b : 'Error: división por cero'; break;
-      default: resultado = 'Operación no válida';
+      default: resultado = 'Error: Operación inválida';
     }
 
     console.log(`${horaActual()} [<] Resultado devuelto: ${resultado}`);
