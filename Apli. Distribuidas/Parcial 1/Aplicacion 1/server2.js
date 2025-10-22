@@ -7,8 +7,21 @@ function horaActual() {
   return `[${now.getHours()}:${now.getMinutes()}:${now.getSeconds()}]`;
 }
 
+let busy = false;  // Estado ocupado para limitar a un cliente a la vez
+
 const server = net.createServer((socket) => {
-  console.log(`${horaActual()} [+] Cliente conectado al servidor secundario`);
+  console.log(`${horaActual()} [+] Cliente intentando conectar al servidor secundario`);
+
+  if (busy) {
+    // Servidor ocupado: Rechazar o redirigir (aquí rechazamos con mensaje)
+    console.log(`${horaActual()} [!] Servidor secundario ocupado, rechazando conexión`);
+    socket.write('SERVERS_BUSY');  // Mensaje de rechazo (puedes cambiar a REDIRECT si hay un tercer servidor)
+    socket.end();
+    return;
+  }
+
+  busy = true;  // Marcar como ocupado
+  console.log(`${horaActual()} [+] Conexión aceptada en servidor secundario`);
 
   socket.on('data', (data) => {
     const mensaje = data.toString().trim();
@@ -30,10 +43,17 @@ const server = net.createServer((socket) => {
     console.log(`${horaActual()} [<] Resultado devuelto: ${resultado}`);
     socket.write(resultado.toString());
     socket.end();
+    busy = false;  // Liberar el servidor después de procesar
   });
 
-  socket.on('end', () => console.log(`${horaActual()} [-] Cliente desconectado del servidor secundario`));
-  socket.on('error', (err) => console.error(`${horaActual()} [!] Error en conexión: ${err.message}`));
+  socket.on('end', () => {
+    console.log(`${horaActual()} [-] Cliente desconectado del servidor secundario`);
+    busy = false;  // Asegurar liberación si el cliente cierra prematuramente
+  });
+  socket.on('error', (err) => {
+    console.error(`${horaActual()} [!] Error en conexión: ${err.message}`);
+    busy = false;  // Liberar en caso de error
+  });
 });
 
 server.on('error', (err) => {

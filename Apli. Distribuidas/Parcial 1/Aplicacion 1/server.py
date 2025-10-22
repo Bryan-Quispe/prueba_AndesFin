@@ -40,7 +40,7 @@ try:
                 print(f"Conexión intentada de {addr}")
                 
                 if busy:
-                    print(f"Servidor ocupado, redirigiendo a {addr}")
+                    print(f"Servidor ocupado, redirigiendo cliente {addr}")
                     try:
                         client_socket.send("REDIRECT 127.0.0.1:12349".encode('utf-8'))
                         # Esperar brevemente para asegurar que el mensaje se envíe
