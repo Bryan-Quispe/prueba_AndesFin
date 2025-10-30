@@ -1,0 +1,60 @@
+postman
+[caps_lock]l[caps_lock]ab[shift_r]_[shift_r]_[caps_lock]d[caps_lock]istribuidas
+cmd
+code .
+[caps_lock][tab][alt_l][tab][caps_lock][ctrl_l][shift]server.py
+le ayudo mas tarde que estoy lejso de casa
+[alt_l][tab]impr[tab] asyncio
+
+import websockets pip install websocket
+[ctrl_l]cklearf
+
+
+clear
+[alt_l]pip [tab][ctrl_l]
+clear
+
+oimpoerrt json
+[ctrl_l]
+[ctrl_l]vi
+clients = set[shift_r](
+[ctrl_l]
+[ctrl_l]  [alt_l]creo un set de clientes
+
+[ctrl_l]def handle[shift_r]_message[shift_r](websocket[shift_r][shift_r][shift_r][shift_r][shift_r][shift_r][shift_r][shift_r][shift_r][shift_r])[shift_r]:
+clients.add[tab][tab]
+
+try[shift_r]:
+
+except[shift_r]:
+
+finally[shift_r][shift_r][shift_r][shift_r][shift_r][shift_r][shift_r][shift_r]: we[tab]s.ex[tab][caps_lock]ok[caps_lock]
+pass.c,.[tab][caps_lock]ok[tab] clients[caps_lock]clients.discard[shift_r](websocket[tab][tab][tab][tab]async [ctrl_l]
+for message in websocket[shift_r][shift_r]:async [ctrl_l]
+data = json.loads[shift_r](message [alt_l]parseo el mensaje recibido[ctrl_l]
+if clients[shift_r][shift_r][shift_r][shift_r]: [alt_l][caps_lock]s[caps_lock]i hay clientes conectados reenvio
+[ctrl_l]
+
+await asyncio.gather[shift_r]( [alt_l][tab][ctrl_l] simultaneamente
+
+[ctrl_l] [ctrl_l]
+*[client.send[tab] [alt_l][alt_l][tab]
+[alt_l][tab][alt_l][tab][ctrl_l][alt_l][tab]chat
+[ctrl_l][shift]
+
+para que es el asterisco
+
+
+async[tab][tab]
+sewrver = await [tab]
+print[tab][tab]escuchando en [shift_r]: [tab][ctrl_l][ctrl_l][ctrl_l]
+awairt[tab][tab][ctrl_l]
+
+if [tab][shift_r]:
+[caps_lock][caps_lock][tab][tab][ctrl_l][ctrl_l][shift]py s[tab]
+[ctrl_l][ctrl_l]clear
+
+[ctrl_l][alt_l][tab][alt_l][tab][ctrl_l]
+[alt_l][tab][ctrl_l][alt_l][tab][alt_l][tab]r[ctrl_l]
+[alt_l][tab][alt_l][tab][shift_r]([ctrl_l][alt_l][tab][alt_l][tab]clear
+

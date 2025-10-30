@@ -1,0 +1,214 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Cliente WebSocket - Lab3</title>
+  <style>
+  :root{--bg:#000000;--card:#0b0b0b;--accent:#ef4444;--muted:#9ca3af;--text:#f8fafc}
+    *{box-sizing:border-box}
+  body{margin:0;font-family:Segoe UI,Roboto,Arial,sans-serif;background:linear-gradient(180deg,#000000 0%, #050002 100%);color:var(--text);min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px}
+  .card{width:100%;max-width:760px;background:var(--card);border-radius:12px;padding:18px;box-shadow:0 6px 24px rgba(239,68,68,0.06)}
+    h1{margin:0 0 12px;font-size:20px}
+    #status{font-size:13px;color:var(--muted);margin-bottom:8px}
+    form{display:flex;gap:8px;margin-bottom:12px}
+  input[type="text"]{flex:1;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:#090909;color:var(--text);outline:none}
+    input[type="text"]::placeholder{color:var(--muted)}
+    button{background:var(--accent);color:white;padding:10px 14px;border-radius:8px;border:0;cursor:pointer}
+  #messages{list-style:none;padding:0;margin:0;max-height:420px;overflow:auto;border-top:1px solid rgba(255,255,255,0.02);padding-top:12px;display:flex;flex-direction:column;gap:6px}
+  #messages li{padding:8px 10px;border-radius:6px;margin:0;font-size:14px;max-width:86%;background:rgba(255,255,255,0.02);align-self:flex-start}
+  #messages li.me{background:linear-gradient(90deg, rgba(239,68,68,0.16), rgba(239,68,68,0.08));border:1px solid rgba(239,68,68,0.22);color:var(--text);align-self:flex-end}
+  .meta{color:var(--muted);font-size:12px;margin-bottom:6px;display:block}
+  .text{white-space:pre-wrap;word-wrap:break-word}
+    .hint{font-size:12px;color:var(--muted);margin-top:8px}
+    /* Mensaje de sistema/aviso debajo del recuadro de mensajes */
+    .notice{margin-top:12px;padding:10px;border-radius:8px;background:#000;color:#ff3b3b;border:1px solid rgba(255,59,59,0.12);font-weight:600;font-size:14px}
+    @media (max-width:480px){form{flex-direction:column}button{width:100%}}
+  </style>
+</head>
+<body>
+  <main class="card" aria-live="polite">
+    <h1>Chat (WebSocket)</h1>
+    <div id="status">Estado: <span id="conn">Desconectado</span></div>
+
+    <ul id="messages" aria-label="Mensajes" role="log"></ul>
+
+    <!-- Contenedor para mostrar mensajes/avisos debajo del recuadro de mensajes -->
+    <div id="notice" class="notice" aria-live="polite" hidden></div>
+
+    <!-- Formulario de envío (colocado debajo del recuadro de mensajes). El nombre es obligatorio y se recuerda en localStorage -->
+    <form id="form" autocomplete="off">
+      <input id="name" type="text" placeholder="Tu nombre " maxlength="32" required />
+      <input id="message" type="text" placeholder="Escribe un mensaje y presiona Enter o enviar" maxlength="500" required />
+      <button id="send" type="submit">Enviar</button>
+    </form>
+
+    <div class="hint">Conecta al servidor WebSocket en <code>ws://localhost:8765</code>. Ejecuta <code>server.py</code> primero.</div>
+  </main>
+
+  <script>
+    // --- Configuración ---
+    const WS_URL = 'ws://localhost:8765';
+
+  // Elementos UI
+  const connEl = document.getElementById('conn');
+  const form = document.getElementById('form');
+  const nameInput = document.getElementById('name');
+  const messageInput = document.getElementById('message');
+  const messagesEl = document.getElementById('messages');
+  const noticeEl = document.getElementById('notice');
+
+    let ws = null;
+
+    // Helper seguro: agrega un mensaje a la lista usando textContent (NO innerHTML)
+    function appendMessage({user='Anon', message='', ts=null, from='remote'}){
+      const li = document.createElement('li');
+      li.setAttribute('role','article');
+      li.setAttribute('aria-live','polite');
+      if (from === 'local' || from === 'me') li.classList.add('me');
+
+      const time = ts ? new Date(ts) : new Date();
+
+        // Meta (hora y usuario). Si el mensaje es local mostramos 'TU' en la UI en vez del nombre real.
+        const meta = document.createElement('div');
+        meta.className = 'meta';
+        const displayUser = (from === 'local' || from === 'me') ? 'TU' : user;
+        meta.textContent = `[${time.toLocaleTimeString()}] ${displayUser}`;
+
+      // Texto del mensaje (usamos textContent para evitar inyección)
+      const txt = document.createElement('div');
+      txt.className = 'text';
+      txt.textContent = String(message);
+
+      li.appendChild(meta);
+      li.appendChild(txt);
+
+      messagesEl.appendChild(li);
+      // Mantener scroll abajo
+      messagesEl.scrollTop = messagesEl.scrollHeight;
+    }
+
+    function setStatus(text, color){
+      connEl.textContent = text;
+      connEl.style.color = color || '';
+    }
+
+    // Mostrar un aviso debajo del recuadro de mensajes (texto rojo sobre fondo negro)
+    function showNotice(msg, timeoutMs = 4000){
+      if (!noticeEl) return;
+      noticeEl.textContent = String(msg);
+      noticeEl.hidden = false;
+      // Si timeoutMs es número positivo, ocultar después
+      if (timeoutMs && timeoutMs > 0){
+        clearTimeout(noticeEl._hideTimer);
+        noticeEl._hideTimer = setTimeout(()=>{
+          noticeEl.hidden = true;
+        }, timeoutMs);
+      }
+    }
+
+    function clearNotice(){
+      if (!noticeEl) return;
+      noticeEl.hidden = true;
+      noticeEl.textContent = '';
+      clearTimeout(noticeEl._hideTimer);
+    }
+
+    function connect(){
+      try {
+        ws = new WebSocket(WS_URL);
+      } catch(err){
+        setStatus('Error al crear WebSocket', 'orange');
+        console.error(err);
+        return;
+      }
+
+      ws.addEventListener('open', () => {
+        setStatus('Conectado', '#86efac');
+        // al conectar, limpiar avisos persistentes
+        clearNotice();
+      });
+
+      ws.addEventListener('close', () => {
+        setStatus('Desconectado', '#fda4af');
+        // intentar reconectar después de 2s
+        setTimeout(connect, 2000);
+      });
+
+      ws.addEventListener('error', (e) => {
+        console.error('WebSocket error', e);
+      });
+
+      ws.addEventListener('message', (ev) => {
+        // El servidor envía JSON; parseamos con try/catch
+        let payload = null;
+        try {
+          payload = JSON.parse(ev.data);
+        } catch(e){
+          // Si no es JSON, mostramos como texto plano (seguros porque usamos textContent)
+          appendMessage({user:'server', message:String(ev.data)});
+          return;
+        }
+
+        // payload esperado: { user: string, message: string }
+        if (payload && typeof payload === 'object'){
+          const user = String(payload.user || 'Anon');
+          const message = String(payload.message || '');
+          appendMessage({user, message, ts: payload.ts || null});
+        }
+      });
+    }
+
+    // Enviar mensaje (sanitización: convertimos a string y usamos JSON.stringify; no usamos innerHTML al mostrar)
+    // Persistencia del nombre: cargar al iniciar y guardar cuando cambie
+    try {
+      const savedName = localStorage.getItem('chat_name');
+      if (savedName) nameInput.value = savedName;
+    } catch(e){ /* ignorar si localStorage no está disponible */ }
+
+    nameInput.addEventListener('blur', () => {
+      try { localStorage.setItem('chat_name', nameInput.value.trim()); } catch(e){}
+    });
+
+    form.addEventListener('submit', (ev) => {
+      ev.preventDefault();
+      // validar nombre obligatorio
+      const user = (nameInput.value || '').trim();
+      if (!user){
+        showNotice('El nombre es obligatorio. Por favor ingresa tu nombre.', 5000);
+        nameInput.focus();
+        return;
+      }
+
+      if (!ws || ws.readyState !== WebSocket.OPEN) {
+        showNotice('No conectado al servidor. Esperando reconexión...', 5000);
+        return;
+      }
+
+      const message = (messageInput.value || '').trim();
+      if (!message) return;
+
+      const payload = { user: user, message: message, ts: Date.now() };
+
+      try {
+        ws.send(JSON.stringify(payload));
+        // guardar nombre en localStorage
+        try { localStorage.setItem('chat_name', user); } catch(e){}
+      } catch(err){
+        console.error('Error al enviar', err);
+        showNotice('Error al enviar el mensaje', 5000);
+      }
+
+      // Mostrar en UI local inmediatamente (también llegará desde servidor a otros clientes)
+      appendMessage({user, message, ts: payload.ts, from:'local'});
+      messageInput.value = '';
+      messageInput.focus();
+    });
+
+    // Conectar al iniciar
+    connect();
+
+    // Soporte: enviar con Enter cuando el input está activo (ya lo cubre el form)
+  </script>
+</body>
+</html>
