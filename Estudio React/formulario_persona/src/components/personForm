@@ -1,0 +1,17 @@
+import { useState } from "react";
+import { Persona } from "../interface/form";
+
+const Person = () => {
+    const [person, setPerson] = useState<Persona>({
+        name: "",
+        lastName: "",
+        age: 0,
+        email: "",
+        phone: "",
+        department: "",
+        academicDegree: ""
+    });
+
+    return ();
+}
+export default Person;
