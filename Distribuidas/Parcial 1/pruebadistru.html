@@ -5,19 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simulacro - Aplicaciones Distribuidas</title>
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             padding: 20px;
             line-height: 1.6;
         }
-
         .container {
             max-width: 900px;
             margin: 0 auto;
@@ -26,40 +20,21 @@
             box-shadow: 0 10px 40px rgba(0,0,0,0.2);
             overflow: hidden;
         }
-
         .header {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
             padding: 30px;
             text-align: center;
         }
-
-        .header h1 {
-            font-size: 2em;
-            margin-bottom: 10px;
-        }
-
-        .header p {
-            font-size: 1.1em;
-            opacity: 0.9;
-        }
-
+        .header h1 { font-size: 2em; margin-bottom: 10px; }
+        .header p { font-size: 1.1em; opacity: 0.9; }
         .instructions {
             background: #f8f9fa;
             padding: 20px;
             border-left: 4px solid #667eea;
             margin: 20px;
         }
-
-        .instructions ul {
-            margin-left: 20px;
-            margin-top: 10px;
-        }
-
-        .section {
-            padding: 20px;
-        }
-
+        .instructions ul { margin-left: 20px; margin-top: 10px; }
         .section-title {
             background: #667eea;
             color: white;
@@ -68,7 +43,6 @@
             font-weight: bold;
             margin: 20px 0 0 0;
         }
-
         .question {
             background: #f8f9fa;
             padding: 20px;
@@ -76,18 +50,13 @@
             border-radius: 8px;
             border-left: 4px solid #764ba2;
         }
-
         .question-text {
             font-weight: bold;
             color: #333;
             margin-bottom: 15px;
             font-size: 1.05em;
         }
-
-        .options {
-            margin-left: 20px;
-        }
-
+        .options { margin-left: 20px; }
         .option {
             padding: 10px;
             margin: 8px 0;
@@ -95,20 +64,9 @@
             border-radius: 5px;
             transition: all 0.3s;
         }
-
-        .option:hover {
-            background: #e9ecef;
-        }
-
-        .option input[type="radio"] {
-            margin-right: 10px;
-            cursor: pointer;
-        }
-
-        .option label {
-            cursor: pointer;
-        }
-
+        .option:hover { background: #e9ecef; }
+        .option input[type="radio"] { margin-right: 10px; cursor: pointer; }
+        .option label { cursor: pointer; }
         .buttons {
             text-align: center;
             padding: 30px;
@@ -117,7 +75,6 @@
             justify-content: center;
             flex-wrap: wrap;
         }
-
         button {
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
@@ -129,16 +86,10 @@
             transition: transform 0.2s, box-shadow 0.2s;
             font-weight: bold;
         }
-
         button:hover {
             transform: translateY(-2px);
             box-shadow: 0 5px 15px rgba(102, 126, 234, 0.4);
         }
-
-        button:active {
-            transform: translateY(0);
-        }
-
         .results {
             display: none;
             background: #f8f9fa;
@@ -147,11 +98,7 @@
             border-radius: 8px;
             border-left: 4px solid #28a745;
         }
-
-        .results.show {
-            display: block;
-        }
-
+        .results.show { display: block; }
         .score {
             font-size: 2em;
             font-weight: bold;
@@ -159,17 +106,8 @@
             text-align: center;
             margin-bottom: 20px;
         }
-
-        .correct {
-            background: #d4edda !important;
-            border-left: 4px solid #28a745 !important;
-        }
-
-        .incorrect {
-            background: #f8d7da !important;
-            border-left: 4px solid #dc3545 !important;
-        }
-
+        .correct { background: #d4edda !important; border-left: 4px solid #28a745 !important; }
+        .incorrect { background: #f8d7da !important; border-left: 4px solid #dc3545 !important; }
         .answer-explanation {
             background: #e7f3ff;
             padding: 15px;
@@ -177,11 +115,7 @@
             border-radius: 5px;
             display: none;
         }
-
-        .answer-explanation.show {
-            display: block;
-        }
-
+        .answer-explanation.show { display: block; }
         .answer-key {
             background: #fff3cd;
             padding: 20px;
@@ -189,17 +123,8 @@
             border-radius: 8px;
             border-left: 4px solid #ffc107;
         }
-
-        .answer-key h3 {
-            color: #856404;
-            margin-bottom: 15px;
-        }
-
-        .answer-item {
-            padding: 8px;
-            margin: 5px 0;
-        }
-
+        .answer-key h3 { color: #856404; margin-bottom: 15px; }
+        .answer-item { padding: 8px; margin: 5px 0; }
         .tips {
             background: #d1ecf1;
             padding: 20px;
@@ -207,55 +132,34 @@
             border-radius: 8px;
             border-left: 4px solid #17a2b8;
         }
-
-        .tips h3 {
-            color: #0c5460;
-            margin-bottom: 15px;
-        }
-
-        .tips ul {
-            margin-left: 20px;
-        }
-
-        .tips li {
-            margin: 8px 0;
-        }
-
+        .tips h3 { color: #0c5460; margin-bottom: 15px; }
+        .tips ul { margin-left: 20px; }
+        .tips li { margin: 8px 0; }
         @media (max-width: 768px) {
-            .header h1 {
-                font-size: 1.5em;
-            }
-            
-            .question {
-                padding: 15px;
-                margin: 10px;
-            }
-            
-            button {
-                padding: 12px 20px;
-                font-size: 1em;
-            }
+            .header h1 { font-size: 1.5em; }
+            .question { padding: 15px; margin: 10px; }
+            button { padding: 12px 20px; font-size: 1em; }
         }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="header">
-            <h1>📚 Simulacro de Prueba</h1>
-            <p>Aplicaciones Distribuidas - Unidad 1</p>
+            <h1>Simulacro de Prueba</h1>
+            <p>Aplicaciones Distribuidas - Unidad 1 + Temas Avanzados</p>
         </div>
 
         <div class="instructions">
-            <h3>📋 INSTRUCCIONES</h3>
+            <h3>INSTRUCCIONES</h3>
             <ul>
-                <li>Total de preguntas: 25</li>
+                <li>Total de preguntas: <strong>40</strong></li>
                 <li>Seleccione una respuesta para cada pregunta</li>
                 <li>Al finalizar, haga clic en "Calificar Examen"</li>
                 <li>Puede ver las respuestas correctas con el botón "Mostrar Respuestas"</li>
             </ul>
         </div>
 
-        <!-- SECCIÓN 1 -->
+        <!-- SECCIÓN 1: Conceptos Fundamentales (1-8) -->
         <div class="section-title">SECCIÓN 1: Conceptos Fundamentales (1-8)</div>
 
         <div class="question" data-answer="b">
@@ -266,7 +170,7 @@
                 <div class="option"><input type="radio" name="q1" value="c" id="q1c"><label for="q1c">c) Un sistema centralizado con múltiples terminales</label></div>
                 <div class="option"><input type="radio" name="q1" value="d" id="q1d"><label for="q1d">d) Una red de computadoras sin coordinación</label></div>
             </div>
-            <div class="answer-explanation">✅ <strong>Respuesta correcta: b)</strong> - Definición textual de Tanenbaum sobre sistemas distribuidos.</div>
+            <div class="answer-explanation">Respuesta correcta: b) - Definición textual de Tanenbaum.</div>
         </div>
 
         <div class="question" data-answer="b">
@@ -277,7 +181,7 @@
                 <div class="option"><input type="radio" name="q2" value="c" id="q2c"><label for="q2c">c) No hay diferencia, son sinónimos</label></div>
                 <div class="option"><input type="radio" name="q2" value="d" id="q2d"><label for="q2d">d) El sistema es más pequeño que la aplicación</label></div>
             </div>
-            <div class="answer-explanation">✅ <strong>Respuesta correcta: b)</strong> - El sistema es la infraestructura completa, mientras la aplicación ejecuta lógica específica sobre ella.</div>
+            <div class="answer-explanation">Respuesta correcta: b) - El sistema es la infraestructura completa.</div>
         </div>
 
         <div class="question" data-answer="b">
@@ -288,7 +192,7 @@
                 <div class="option"><input type="radio" name="q3" value="c" id="q3c"><label for="q3c">c) Cada usuario tiene su propia base de datos</label></div>
                 <div class="option"><input type="radio" name="q3" value="d" id="q3d"><label for="q3d">d) No se requiere red para funcionar</label></div>
             </div>
-            <div class="answer-explanation">✅ <strong>Respuesta correcta: b)</strong> - Característica principal de aplicaciones centralizadas.</div>
+            <div class="answer-explanation">Respuesta correcta: b) - Característica principal de centralizadas.</div>
         </div>
 
         <div class="question" data-answer="c">
@@ -299,18 +203,18 @@
                 <div class="option"><input type="radio" name="q4" value="c" id="q4c"><label for="q4c">c) Sistema de Punto de Venta (POS) local</label></div>
                 <div class="option"><input type="radio" name="q4" value="d" id="q4d"><label for="q4d">d) WhatsApp</label></div>
             </div>
-            <div class="answer-explanation">✅ <strong>Respuesta correcta: c)</strong> - El POS local es un ejemplo mencionado en la presentación como aplicación centralizada.</div>
+            <div class="answer-explanation">Respuesta correcta: c) - POS local es centralizado.</div>
         </div>
 
         <div class="question" data-answer="c">
             <div class="question-text">5. ¿Qué sucede en una aplicación centralizada si el servidor falla?</div>
             <div class="options">
-                <div class="option"><input type="radio" name="q5" value="a" id="q5a"><label for="q5a">a) Los clientes pueden seguir trabajando de forma independiente</label></div>
-                <div class="option"><input type="radio" name="q5" value="b" id="q5b"><label for="q5b">b) Se activa automáticamente un servidor de respaldo</label></div>
+                <div class="option"><input type="radio" name="q5" value="a" id="q5a"><label for="q5a">a) Los clientes pueden seguir trabajando</label></div>
+                <div class="option"><input type="radio" name="q5" value="b" id="q5b"><label for="q5b">b) Se activa un respaldo automático</label></div>
                 <div class="option"><input type="radio" name="q5" value="c" id="q5c"><label for="q5c">c) Pérdida de servicio para todos los usuarios</label></div>
                 <div class="option"><input type="radio" name="q5" value="d" id="q5d"><label for="q5d">d) Solo algunos usuarios pierden acceso</label></div>
             </div>
-            <div class="answer-explanation">✅ <strong>Respuesta correcta: c)</strong> - Sin el servidor central, todo el servicio se pierde, es una desventaja clave.</div>
+            <div class="answer-explanation">Respuesta correcta: c) - Sin servidor central, todo falla.</div>
         </div>
 
         <div class="question" data-answer="b">
@@ -321,7 +225,7 @@
                 <div class="option"><input type="radio" name="q6" value="c" id="q6c"><label for="q6c">c) Mediante archivos compartidos</label></div>
                 <div class="option"><input type="radio" name="q6" value="d" id="q6d"><label for="q6d">d) Por señales de hardware</label></div>
             </div>
-            <div class="answer-explanation">✅ <strong>Respuesta correcta: b)</strong> - Definición de Coulouris: "solamente por medio de mensajes".</div>
+            <div class="answer-explanation">Respuesta correcta: b) - Definición de Coulouris.</div>
         </div>
 
         <div class="question" data-answer="a">
@@ -329,10 +233,10 @@
             <div class="options">
                 <div class="option"><input type="radio" name="q7" value="a" id="q7a"><label for="q7a">a) Dividir componentes en varias ubicaciones físicas o lógicas</label></div>
                 <div class="option"><input type="radio" name="q7" value="b" id="q7b"><label for="q7b">b) Distribuir el software a los usuarios</label></div>
-                <div class="option"><input type="radio" name="q7" value="c" id="q7c"><label for="q7c">c) Repartir las ganancias entre desarrolladores</label></div>
+                <div class="option"><input type="radio" name="q7" value="c" id="q7c"><label for="q7c">c) Repartir las ganancias</label></div>
                 <div class="option"><input type="radio" name="q7" value="d" id="q7d"><label for="q7d">d) Crear copias de seguridad</label></div>
             </div>
-            <div class="answer-explanation">✅ <strong>Respuesta correcta: a)</strong> - Distribución es dividir componentes en diferentes ubicaciones.</div>
+            <div class="answer-explanation">Respuesta correcta: a) - Distribución = separación geográfica/lógica.</div>
         </div>
 
         <div class="question" data-answer="b">
@@ -343,10 +247,10 @@
                 <div class="option"><input type="radio" name="q8" value="c" id="q8c"><label for="q8c">c) USB compartido</label></div>
                 <div class="option"><input type="radio" name="q8" value="d" id="q8d"><label for="q8d">d) Discos duros externos</label></div>
             </div>
-            <div class="answer-explanation">✅ <strong>Respuesta correcta: b)</strong> - Las computadoras colaboran mediante red compartiendo recursos.</div>
+            <div class="answer-explanation">Respuesta correcta: b) - Colaboración vía red.</div>
         </div>
 
-        <!-- SECCIÓN 2 -->
+        <!-- SECCIÓN 2: Arquitectura del Laboratorio DNS (9-13) -->
         <div class="section-title">SECCIÓN 2: Arquitectura del Laboratorio DNS (9-13)</div>
 
         <div class="question" data-answer="b">
@@ -357,7 +261,7 @@
                 <div class="option"><input type="radio" name="q9" value="c" id="q9c"><label for="q9c">c) Cliente</label></div>
                 <div class="option"><input type="radio" name="q9" value="d" id="q9d"><label for="q9d">d) Balanceador de carga</label></div>
             </div>
-            <div class="answer-explanation">✅ <strong>Respuesta correcta: b)</strong> - VM1 es el servidor DNS en el laboratorio.</div>
+            <div class="answer-explanation">Respuesta correcta: b) - VM1 es DNS Server.</div>
         </div>
 
         <div class="question" data-answer="c">
@@ -368,7 +272,7 @@
                 <div class="option"><input type="radio" name="q10" value="c" id="q10c"><label for="q10c">c) BIND9</label></div>
                 <div class="option"><input type="radio" name="q10" value="d" id="q10d"><label for="q10d">d) MySQL</label></div>
             </div>
-            <div class="answer-explanation">✅ <strong>Respuesta correcta: c)</strong> - BIND9 es el servicio DNS mencionado en el laboratorio.</div>
+            <div class="answer-explanation">Respuesta correcta: c) - BIND9 es el servicio DNS.</div>
         </div>
 
         <div class="question" data-answer="c">
@@ -379,7 +283,7 @@
                 <div class="option"><input type="radio" name="q11" value="c" id="q11c"><label for="q11c">c) Cliente que resuelve nombres y consume servicios</label></div>
                 <div class="option"><input type="radio" name="q11" value="d" id="q11d"><label for="q11d">d) Balanceador de carga</label></div>
             </div>
-            <div class="answer-explanation">✅ <strong>Respuesta correcta: c)</strong> - VM3 es el cliente del sistema.</div>
+            <div class="answer-explanation">Respuesta correcta: c) - VM3 es el cliente.</div>
         </div>
 
         <div class="question" data-answer="b">
@@ -390,7 +294,7 @@
                 <div class="option"><input type="radio" name="q12" value="c" id="q12c"><label for="q12c">c) SQL Server</label></div>
                 <div class="option"><input type="radio" name="q12" value="d" id="q12d"><label for="q12d">d) DNS Server</label></div>
             </div>
-            <div class="answer-explanation">✅ <strong>Respuesta correcta: b)</strong> - Apache o Nginx son servidores web mencionados para VM2.</div>
+            <div class="answer-explanation">Respuesta correcta: b) - Apache o Nginx.</div>
         </div>
 
         <div class="question" data-answer="c">
@@ -401,10 +305,10 @@
                 <div class="option"><input type="radio" name="q13" value="c" id="q13c"><label for="q13c">c) VM1</label></div>
                 <div class="option"><input type="radio" name="q13" value="d" id="q13d"><label for="q13d">d) El router</label></div>
             </div>
-            <div class="answer-explanation">✅ <strong>Respuesta correcta: c)</strong> - VM1 como DNS Server resuelve los nombres de dominio.</div>
+            <div class="answer-explanation">Respuesta correcta: c) - VM1 (DNS) resuelve nombres.</div>
         </div>
 
-        <!-- SECCIÓN 3 -->
+        <!-- SECCIÓN 3: Características (14-18) -->
         <div class="section-title">SECCIÓN 3: Características de Sistemas Distribuidos (14-18)</div>
 
         <div class="question" data-answer="c">
@@ -415,29 +319,29 @@
                 <div class="option"><input type="radio" name="q14" value="c" id="q14c"><label for="q14c">c) Todos los servicios están en una sola VM</label></div>
                 <div class="option"><input type="radio" name="q14" value="d" id="q14d"><label for="q14d">d) Separación de responsabilidades</label></div>
             </div>
-            <div class="answer-explanation">✅ <strong>Respuesta correcta: c)</strong> - INCORRECTA porque los servicios están distribuidos en diferentes VMs, no en una sola.</div>
+            <div class="answer-explanation">Respuesta correcta: c) - INCORRECTA: servicios están en VMs distintas.</div>
         </div>
 
         <div class="question" data-answer="b">
             <div class="question-text">15. La "transparencia de ubicación" significa que:</div>
             <div class="options">
-                <div class="option"><input type="radio" name="q15" value="a" id="q15a"><label for="q15a">a) Los servidores deben estar en la misma ubicación física</label></div>
-                <div class="option"><input type="radio" name="q15" value="b" id="q15b"><label for="q15b">b) El cliente no necesita conocer la ubicación real del servidor, solo el nombre</label></div>
-                <div class="option"><input type="radio" name="q15" value="c" id="q15c"><label for="q15c">c) Todo debe ser visible para el usuario</label></div>
+                <div class="option"><input type="radio" name="q15" value="a" id="q15a"><label for="q15a">a) Los servidores deben estar en la misma ubicación</label></div>
+                <div class="option"><input type="radio" name="q15" value="b" id="q15b"><label for="q15b">b) El cliente no necesita conocer la ubicación real del servidor</label></div>
+                <div class="option"><input type="radio" name="q15" value="c" id="q15c"><label for="q15c">c) Todo debe ser visible</label></div>
                 <div class="option"><input type="radio" name="q15" value="d" id="q15d"><label for="q15d">d) Las IPs deben ser públicas</label></div>
             </div>
-            <div class="answer-explanation">✅ <strong>Respuesta correcta: b)</strong> - El cliente usa nombres de dominio, no necesita conocer ubicaciones físicas o IPs.</div>
+            <div class="answer-explanation">Respuesta correcta: b) - Solo usa nombres, no ubicaciones.</div>
         </div>
 
         <div class="question" data-answer="b">
             <div class="question-text">16. Una ventaja de separar responsabilidades en VMs diferentes es:</div>
             <div class="options">
                 <div class="option"><input type="radio" name="q16" value="a" id="q16a"><label for="q16a">a) Mayor complejidad sin beneficios</label></div>
-                <div class="option"><input type="radio" name="q16" value="b" id="q16b"><label for="q16b">b) Escalabilidad y flexibilidad para añadir más servidores</label></div>
+                <div class="option"><input type="radio" name="q16" value="b" id="q16b"><label for="q16b">b) Escalabilidad y flexibilidad</label></div>
                 <div class="option"><input type="radio" name="q16" value="c" id="q16c"><label for="q16c">c) Menor seguridad</label></div>
                 <div class="option"><input type="radio" name="q16" value="d" id="q16d"><label for="q16d">d) Mayor costo sin ventajas</label></div>
             </div>
-            <div class="answer-explanation">✅ <strong>Respuesta correcta: b)</strong> - Permite escalabilidad y flexibilidad, característica clave de sistemas distribuidos.</div>
+            <div class="answer-explanation">Respuesta correcta: b) - Permite escalar fácilmente.</div>
         </div>
 
         <div class="question" data-answer="b">
@@ -448,21 +352,21 @@
                 <div class="option"><input type="radio" name="q17" value="c" id="q17c"><label for="q17c">c) Por internet público</label></div>
                 <div class="option"><input type="radio" name="q17" value="d" id="q17d"><label for="q17d">d) No se comunican</label></div>
             </div>
-            <div class="answer-explanation">✅ <strong>Respuesta correcta: b)</strong> - Las VMs se comunican a través de una red privada interna.</div>
+            <div class="answer-explanation">Respuesta correcta: b) - Red privada interna.</div>
         </div>
 
         <div class="question" data-answer="c">
-            <div class="question-text">18. ¿Qué componente del sistema maneja la resolución de nombres de dominio?</div>
+            <div class="question-text">18. ¿Qué componente maneja la resolución de nombres de dominio?</div>
             <div class="options">
                 <div class="option"><input type="radio" name="q18" value="a" id="q18a"><label for="q18a">a) VM2 (Web Server)</label></div>
                 <div class="option"><input type="radio" name="q18" value="b" id="q18b"><label for="q18b">b) VM3 (Cliente)</label></div>
                 <div class="option"><input type="radio" name="q18" value="c" id="q18c"><label for="q18c">c) VM1 (DNS Server)</label></div>
-                <div class="option"><input type="radio" name="q18" value="d" id="q18d"><label for="q18d">d) El navegador web</label></div>
+                <div class="option"><input type="radio" name="q18" value="d" id="q18d"><label for="q18d">d) El navegador</label></div>
             </div>
-            <div class="answer-explanation">✅ <strong>Respuesta correcta: c)</strong> - VM1 es el DNS Server que resuelve nombres.</div>
+            <div class="answer-explanation">Respuesta correcta: c) - VM1 es el DNS.</div>
         </div>
 
-        <!-- SECCIÓN 4 -->
+        <!-- SECCIÓN 4: Componentes (19-22) -->
         <div class="section-title">SECCIÓN 4: Componentes de Sistemas (19-22)</div>
 
         <div class="question" data-answer="b">
@@ -473,7 +377,7 @@
                 <div class="option"><input type="radio" name="q19" value="c" id="q19c"><label for="q19c">c) Solo la interfaz de usuario</label></div>
                 <div class="option"><input type="radio" name="q19" value="d" id="q19d"><label for="q19d">d) Únicamente el hardware</label></div>
             </div>
-            <div class="answer-explanation">✅ <strong>Respuesta correcta: b)</strong> - Middleware incluye servidores de aplicaciones y gestores de mensajería.</div>
+            <div class="answer-explanation">Respuesta correcta: b) - Middleware incluye gestores y servidores.</div>
         </div>
 
         <div class="question" data-answer="c">
@@ -482,9 +386,9 @@
                 <div class="option"><input type="radio" name="q20" value="a" id="q20a"><label for="q20a">a) Lógica de negocio</label></div>
                 <div class="option"><input type="radio" name="q20" value="b" id="q20b"><label for="q20b">b) Interfaces de usuario</label></div>
                 <div class="option"><input type="radio" name="q20" value="c" id="q20c"><label for="q20c">c) Recursos como CPU, memoria, disco y red</label></div>
-                <div class="option"><input type="radio" name="q20" value="d" id="q20d"><label for="q20d">d) Solo la presentación de datos</label></div>
+                <div class="option"><input type="radio" name="q20" value="d" id="q20d"><label for="q20d">d) Solo presentación de datos</label></div>
             </div>
-            <div class="answer-explanation">✅ <strong>Respuesta correcta: c)</strong> - El sistema gestiona recursos de bajo nivel como CPU, memoria, disco y red.</div>
+            <div class="answer-explanation">Respuesta correcta: c) - Sistema gestiona recursos de bajo nivel.</div>
         </div>
 
         <div class="question" data-answer="c">
@@ -495,7 +399,7 @@
                 <div class="option"><input type="radio" name="q21" value="c" id="q21c"><label for="q21c">c) Módulos o servicios (backend, frontend, base de datos)</label></div>
                 <div class="option"><input type="radio" name="q21" value="d" id="q21d"><label for="q21d">d) Solo base de datos</label></div>
             </div>
-            <div class="answer-explanation">✅ <strong>Respuesta correcta: c)</strong> - Las aplicaciones se componen de múltiples módulos colaborando entre sí.</div>
+            <div class="answer-explanation">Respuesta correcta: c) - Aplicación = módulos colaborando.</div>
         </div>
 
         <div class="question" data-answer="b">
@@ -506,10 +410,10 @@
                 <div class="option"><input type="radio" name="q22" value="c" id="q22c"><label for="q22c">c) Solo diseño visual</label></div>
                 <div class="option"><input type="radio" name="q22" value="d" id="q22d"><label for="q22d">d) Únicamente interfaz de usuario</label></div>
             </div>
-            <div class="answer-explanation">✅ <strong>Respuesta correcta: b)</strong> - El sistema garantiza propiedades como tolerancia a fallos, escalabilidad y consistencia.</div>
+            <div class="answer-explanation">Respuesta correcta: b) - Propiedades clave del sistema.</div>
         </div>
 
-        <!-- SECCIÓN 5 -->
+        <!-- SECCIÓN 5: Flujo de Comunicación (23-25) -->
         <div class="section-title">SECCIÓN 5: Flujo de Comunicación (23-25)</div>
 
         <div class="question" data-answer="b">
@@ -520,7 +424,7 @@
                 <div class="option"><input type="radio" name="q23" value="c" id="q23c"><label for="q23c">c) HTTP request → HTTP response → DNS query</label></div>
                 <div class="option"><input type="radio" name="q23" value="d" id="q23d"><label for="q23d">d) DNS response → DNS query → HTTP request</label></div>
             </div>
-            <div class="answer-explanation">✅ <strong>Respuesta correcta: b)</strong> - Primero se resuelve el DNS, luego se hace la petición HTTP.</div>
+            <div class="answer-explanation">Respuesta correcta: b) - Primero DNS, luego HTTP.</div>
         </div>
 
         <div class="question" data-answer="b">
@@ -531,7 +435,7 @@
                 <div class="option"><input type="radio" name="q24" value="c" id="q24c"><label for="q24c">c) FTP request</label></div>
                 <div class="option"><input type="radio" name="q24" value="d" id="q24d"><label for="q24d">d) SSH connection</label></div>
             </div>
-            <div class="answer-explanation">✅ <strong>Respuesta correcta: b)</strong> - VM3 envía consultas DNS a VM1 para resolver nombres.</div>
+            <div class="answer-explanation">Respuesta correcta: b) - DNS query para resolver nombre.</div>
         </div>
 
         <div class="question" data-answer="c">
@@ -542,14 +446,185 @@
                 <div class="option"><input type="radio" name="q25" value="c" id="q25c"><label for="q25c">c) HTTP</label></div>
                 <div class="option"><input type="radio" name="q25" value="d" id="q25d"><label for="q25d">d) SMTP</label></div>
             </div>
-            <div class="answer-explanation">✅ <strong>Respuesta correcta: c)</strong> - HTTP es el protocolo para servir páginas web.</div>
+            <div class="answer-explanation">Respuesta correcta: c) - HTTP sirve páginas web.</div>
+        </div>
+
+        <!-- SECCIÓN 6: FALACIAS (26-33) -->
+        <div class="section-title">SECCIÓN 6: Falacias de Sistemas Distribuidos (26-33)</div>
+
+        <div class="question" data-answer="b">
+            <div class="question-text">26. ¿Cuál de las siguientes NO es una falacia de sistemas distribuidos?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q26" value="a" id="q26a"><label for="q26a">a) La red es segura</label></div>
+                <div class="option"><input type="radio" name="q26" value="b" id="q26b"><label for="q26b">b) La red es homogénea</label></div>
+                <div class="option"><input type="radio" name="q26" value="c" id="q26c"><label for="q26c">c) La latencia es cero</label></div>
+                <div class="option"><input type="radio" name="q26" value="d" id="q26d"><label for="q26d">d) El ancho de banda es infinito</label></div>
+            </div>
+            <div class="answer-explanation">Respuesta correcta: b) - Todas son falacias. "Homogénea" SÍ lo es.</div>
+        </div>
+
+        <div class="question" data-answer="c">
+            <div class="question-text">27. "La latencia es cero" es una falacia porque:</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q27" value="a" id="q27a"><label for="q27a">a) Las redes siempre tienen latencia</label></div>
+                <div class="option"><input type="radio" name="q27" value="b" id="q27b"><label for="q27b">b) Los datos viajan a velocidad infinita</label></div>
+                <div class="option"><input type="radio" name="q27" value="c" id="q27c"><label for="q27c">c) Siempre hay retraso en la comunicación entre nodos</label></div>
+                <div class="option"><input type="radio" name="q27" value="d" id="q27d"><label for="q27d">d) Solo aplica en redes locales</label></div>
+            </div>
+            <div class="answer-explanation">Respuesta correcta: c) - La latencia nunca es cero.</div>
+        </div>
+
+        <div class="question" data-answer="a">
+            <div class="question-text">28. "El costo del transporte es cero" implica que:</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q28" value="a" id="q28a"><label for="q28a">a) Enviar datos por red es gratis</label></div>
+                <div class="option"><input type="radio" name="q28" value="b" id="q28b"><label for="q28b">b) Los datos no ocupan espacio</label></div>
+                <div class="option"><input type="radio" name="q28" value="c" id="q28c"><label for="q28c">c) Solo aplica a redes internas</label></div>
+                <div class="option"><input type="radio" name="q28" value="d" id="q28d"><label for="q28d">d) No consume recursos</label></div>
+            </div>
+            <div class="answer-explanation">Respuesta correcta: a) - Falacia: enviar datos consume ancho de banda.</div>
+        </div>
+
+        <div class="question" data-answer="b">
+            <div class="question-text">29. ¿Cuál es una falacia común en sistemas distribuidos?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q29" value="a" id="q29a"><label for="q29a">a) La red es confiable</label></div>
+                <div class="option"><input type="radio" name="q29" value="b" id="q29b"><label for="q29b">b) La topología de la red no cambia</label></div>
+                <div class="option"><input type="radio" name="q29" value="c" id="q29c"><label for="q29c">c) Hay múltiples administradores</label></div>
+                <div class="option"><input type="radio" name="q29" value="d" id="q29d"><label for="q29d">d) La red es heterogénea</label></div>
+            </div>
+            <div class="answer-explanation">Respuesta correcta: b) - La topología cambia constantemente.</div>
+        </div>
+
+        <div class="question" data-answer="c">
+            <div class="question-text">30. "Hay un solo administrador" es una falacia porque:</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q30" value="a" id="q30a"><label for="q30a">a) Siempre hay varios</label></div>
+                <div class="option"><input type="radio" name="q30" value="b" id="q30b"><label for="q30b">b) No hay administradores</label></div>
+                <div class="option"><input type="radio" name="q30" value="c" id="q30c"><label for="q30c">c) En sistemas grandes, múltiples equipos gestionan partes del sistema</label></div>
+                <div class="option"><input type="radio" name="q30" value="d" id="q30d"><label for="q30d">d) Solo aplica en PYMES</label></div>
+            </div>
+            <div class="answer-explanation">Respuesta correcta: c) - Múltiples administradores por dominio.</div>
+        </div>
+
+        <div class="question" data-answer="a">
+            <div class="question-text">31. ¿Qué protocolo se usa para comunicación rápida entre servidores?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q31" value="a" id="q31a"><label for="q31a">a) gRPC</label></div>
+                <div class="option"><input type="radio" name="q31" value="b" id="q31b"><label for="q31b">b) MQTT</label></div>
+                <div class="option"><input type="radio" name="q31" value="c" id="q31c"><label for="q31c">c) REST</label></div>
+                <div class="option"><input type="radio" name="q31" value="d" id="q31d"><label for="q31d">d) SOAP</label></div>
+            </div>
+            <div class="answer-explanation">Respuesta correcta: a) - gRPC es rápido entre servidores.</div>
+        </div>
+
+        <div class="question" data-answer="b">
+            <div class="question-text">32. MQTT es ideal para:</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q32" value="a" id="q32a"><label for="q32a">a) Servidores de alto rendimiento</label></div>
+                <div class="option"><input type="radio" name="q32" value="b" id="q32b"><label for="q32b">b) Dispositivos IoT y comunicación ligera</label></div>
+                <div class="option"><input type="radio" name="q32" value="c" id="q32c"><label for="q32c">c) Transferencia de archivos grandes</label></div>
+                <div class="option"><input type="radio" name="q32" value="d" id="q32d"><label for="q32d">d) Videollamadas</label></div>
+            </div>
+            <div class="answer-explanation">Respuesta correcta: b) - MQTT es ligero para IoT.</div>
+        </div>
+
+        <div class="question" data-answer="c">
+            <div class="question-text">33. ¿Cuál NO es una falacia?</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q33" value="a" id="q33a"><label for="q33a">a) La red es segura</label></div>
+                <div class="option"><input type="radio" name="q33" value="b" id="q33b"><label for="q33b">b) El ancho de banda es infinito</label></div>
+                <div class="option"><input type="radio" name="q33" value="c" id="q33c"><label for="q33c">c) La red puede fallar</label></div>
+                <div class="option"><input type="radio" name="q33" value="d" id="q33d"><label for="q33d">d) La latencia es cero</label></div>
+            </div>
+            <div class="answer-explanation">Respuesta correcta: c) - "Puede fallar" es una VERDAD.</div>
+        </div>
+
+        <!-- SECCIÓN 7: TEOREMA CAP Y CONCURRENCIA (34-40) -->
+        <div class="section-title">SECCIÓN 7: Teorema CAP y Concurrencia (34-40)</div>
+
+        <div class="question" data-answer="b">
+            <div class="question-text">34. Según el Teorema CAP, en presencia de partición de red, solo se pueden garantizar:</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q34" value="a" id="q34a"><label for="q34a">a) Consistencia y Disponibilidad</label></div>
+                <div class="option"><input type="radio" name="q34" value="b" id="q34b"><label for="q34b">b) Dos de las tres propiedades: C, A o P</label></div>
+                <div class="option"><input type="radio" name="q34" value="c" id="q34c"><label for="q34c">c) Las tres propiedades</label></div>
+                <div class="option"><input type="radio" name="q34" value="d" id="q34d"><label for="q34d">d) Solo Disponibilidad</label></div>
+            </div>
+            <div class="answer-explanation">Respuesta correcta: b) - Solo 2 de 3 en partición.</div>
+        </div>
+
+        <div class="question" data-answer="a">
+            <div class="question-text">35. En el Teorema CAP, "Partition Tolerance" significa:</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q35" value="a" id="q35a"><label for="q35a">a) El sistema debe seguir funcionando aunque haya fallos de comunicación</label></div>
+                <div class="option"><input type="radio" name="q35" value="b" id="q35b"><label for="q35b">b) Todos los nodos deben estar sincronizados</label></div>
+                <div class="option"><input type="radio" name="q35" value="c" id="q35c"><label for="q35c">c) El sistema debe responder siempre</label></div>
+                <div class="option"><input type="radio" name="q35" value="d" id="q35d"><label for="q35d">d) Solo aplica a bases de datos</label></div>
+            </div>
+            <div class="answer-explanation">Respuesta correcta: a) - P es obligatorio en distribuidos.</div>
+        </div>
+
+        <div class="question" data-answer="c">
+            <div class="question-text">36. La concurrencia en sistemas distribuidos:</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q36" value="a" id="q36a"><label for="q36a">a) Ejecuta tareas en paralelo real</label></div>
+                <div class="option"><input type="radio" name="q36" value="b" id="q36b"><label for="q36b">b) Comparte memoria entre nodos</label></div>
+                <div class="option"><input type="radio" name="q36" value="c" id="q36c"><label for="q36c">c) Crea una ilusión de simultaneidad aunque no haya paralelismo real</label></div>
+                <div class="option"><input type="radio" name="q36" value="d" id="q36d"><label for="q36d">d) Solo aplica a un nodo</label></div>
+            </div>
+            <div class="answer-explanation">Respuesta correcta: c) - No hay paralelismo real entre nodos.</div>
+        </div>
+
+        <div class="question" data-answer="b">
+            <div class="question-text">37. En el Modelo de Actores, cada actor:</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q37" value="a" id="q37a"><label for="q37a">a) Comparte memoria con otros</label></div>
+                <div class="option"><input type="radio" name="q37" value="b" id="q37b"><label for="q37b">b) Es independiente y se comunica solo por mensajes</label></div>
+                <div class="option"><input type="radio" name="q37" value="c" id="q37c"><label for="q37c">c) Ejecuta hilos compartidos</label></div>
+                <div class="option"><input type="radio" name="q37" value="d" id="q37d"><label for="q37d">d) Usa locks para sincronización</label></div>
+            </div>
+            <div class="answer-explanation">Respuesta correcta: b) - Solo mensajes, sin memoria compartida.</div>
+        </div>
+
+        <div class="question" data-answer="a">
+            <div class="question-text">38. Ejemplo de Modelo de Flujos Reactivos:</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q38" value="a" id="q38a"><label for="q38a">a) Una app de clima que se actualiza al cambiar la temperatura</label></div>
+                <div class="option"><input type="radio" name="q38" value="b" id="q38b"><label for="q38b">b) Un chat donde los mensajes se envían manualmente</label></div>
+                <div class="option"><input type="radio" name="q38" value="c" id="q38c"><label for="q38c">c) Un sistema que recarga cada 5 minutos</label></div>
+                <div class="option"><input type="radio" name="q38" value="d" id="q38d"><label for="q38d">d) Una base de datos relacional tradicional</label></div>
+            </div>
+            <div class="answer-explanation">Respuesta correcta: a) - Reacciona automáticamente a eventos.</div>
+        </div>
+
+        <div class="question" data-answer="c">
+            <div class="question-text">39. Los hilos en sistemas distribuidos:</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q39" value="a" id="q39a"><label for="q39a">a) Nunca se pausan</label></div>
+                <div class="option"><input type="radio" name="q39" value="b" id="q39b"><label for="q39b">b) Ejecutan en paralelo real entre nodos</label></div>
+                <div class="option"><input type="radio" name="q39" value="c" id="q39c"><label for="q39c">c) Se pausan esperando respuestas remotas, agregando overhead</label></div>
+                <div class="option"><input type="radio" name="q39" value="d" id="q39d"><label for="q39d">d) No existen en distribuidos</label></div>
+            </div>
+            <div class="answer-explanation">Respuesta correcta: c) - El bloqueo por red es costoso.</div>
+        </div>
+
+        <div class="question" data-answer="b">
+            <div class="question-text">40. En una operación secuencial en un sistema distribuido, se garantizan:</div>
+            <div class="options">
+                <div class="option"><input type="radio" name="q40" value="a" id="q40a"><label for="q40a">a) Las tres propiedades CAP</label></div>
+                <div class="option"><input type="radio" name="q40" value="b" id="q40b"><label for="q40b">b) Solo dos propiedades del Teorema CAP</label></div>
+                <div class="option"><input type="radio" name="q40" value="c" id="q40c"><label for="q40c">c) Solo Consistencia</label></div>
+                <div class="option"><input type="radio" name="q40" value="d" id="q40d"><label for="q40d">d) Ninguna propiedad</label></div>
+            </div>
+            <div class="answer-explanation">Respuesta correcta: b) - P es obligatorio → solo 2 de 3.</div>
         </div>
 
         <!-- BOTONES -->
         <div class="buttons">
-            <button onclick="gradeExam()">📊 Calificar Examen</button>
-            <button onclick="showAnswers()">📖 Mostrar Respuestas</button>
-            <button onclick="resetExam()">🔄 Reiniciar Examen</button>
+            <button onclick="gradeExam()">Calificar Examen</button>
+            <button onclick="showAnswers()">Mostrar Respuestas</button>
+            <button onclick="resetExam()">Reiniciar Examen</button>
         </div>
 
         <!-- RESULTADOS -->
@@ -560,44 +635,57 @@
 
         <!-- CLAVE DE RESPUESTAS -->
         <div class="answer-key" id="answerKey" style="display: none;">
-            <h3>🔑 Clave de Respuestas</h3>
-            <div class="answer-item">1. b) - Definición de Tanenbaum</div>
+            <h3>Clave de Respuestas</h3>
+            <div class="answer-item">1. b) - Tanenbaum</div>
             <div class="answer-item">2. b) - Sistema vs Aplicación</div>
-            <div class="answer-item">3. b) - Característica de aplicación centralizada</div>
-            <div class="answer-item">4. c) - POS local es ejemplo centralizado</div>
-            <div class="answer-item">5. c) - Pérdida total de servicio</div>
-            <div class="answer-item">6. b) - Definición de Coulouris</div>
-            <div class="answer-item">7. a) - Concepto de distribución</div>
-            <div class="answer-item">8. b) - Colaboración mediante red</div>
-            <div class="answer-item">9. b) - VM1 es DNS Server</div>
-            <div class="answer-item">10. c) - BIND9 para DNS</div>
-            <div class="answer-item">11. c) - VM3 es el cliente</div>
-            <div class="answer-item">12. b) - Apache o Nginx para web</div>
-            <div class="answer-item">13. c) - VM1 resuelve nombres</div>
-            <div class="answer-item">14. c) - INCORRECTA: servicios distribuidos</div>
-            <div class="answer-item">15. b) - Transparencia de ubicación</div>
-            <div class="answer-item">16. b) - Escalabilidad y flexibilidad</div>
-            <div class="answer-item">17. b) - Red privada interna</div>
-            <div class="answer-item">18. c) - VM1 maneja DNS</div>
-            <div class="answer-item">19. b) - Middleware incluye servidores y gestores</div>
-            <div class="answer-item">20. c) - Sistema gestiona recursos</div>
-            <div class="answer-item">21. c) - Módulos colaborando</div>
-            <div class="answer-item">22. b) - Tolerancia, escalabilidad, consistencia</div>
-            <div class="answer-item">23. b) - Orden: DNS primero, luego HTTP</div>
+            <div class="answer-item">3. b) - Centralizado</div>
+            <div class="answer-item">4. c) - POS local</div>
+            <div class="answer-item">5. c) - Pérdida total</div>
+            <div class="answer-item">6. b) - Coulouris</div>
+            <div class="answer-item">7. a) - Distribución</div>
+            <div class="answer-item">8. b) - Red compartida</div>
+            <div class="answer-item">9. b) - VM1 DNS</div>
+            <div class="answer-item">10. c) - BIND9</div>
+            <div class="answer-item">11. c) - Cliente</div>
+            <div class="answer-item">12. b) - Apache/Nginx</div>
+            <div class="answer-item">13. c) - VM1 resuelve</div>
+            <div class="answer-item">14. c) - INCORRECTA</div>
+            <div class="answer-item">15. b) - Transparencia</div>
+            <div class="answer-item">16. b) - Escalabilidad</div>
+            <div class="answer-item">17. b) - Red privada</div>
+            <div class="answer-item">18. c) - VM1 DNS</div>
+            <div class="answer-item">19. b) - Middleware</div>
+            <div class="answer-item">20. c) - Recursos</div>
+            <div class="answer-item">21. c) - Módulos</div>
+            <div class="answer-item">22. b) - Tolerancia</div>
+            <div class="answer-item">23. b) - DNS primero</div>
             <div class="answer-item">24. b) - DNS query</div>
-            <div class="answer-item">25. c) - HTTP para páginas web</div>
+            <div class="answer-item">25. c) - HTTP</div>
+            <div class="answer-item">26. b) - Homogénea</div>
+            <div class="answer-item">27. c) - Latencia</div>
+            <div class="answer-item">28. a) - Costo</div>
+            <div class="answer-item">29. b) - Topología</div>
+            <div class="answer-item">30. c) - Admins</div>
+            <div class="answer-item">31. a) - gRPC</div>
+            <div class="answer-item">32. b) - MQTT</div>
+            <div class="answer-item">33. c) - Puede fallar</div>
+            <div class="answer-item">34. b) - 2 de 3</div>
+            <div class="answer-item">35. a) - P tolerancia</div>
+            <div class="answer-item">36. c) - Ilusión</div>
+            <div class="answer-item">37. b) - Mensajes</div>
+            <div class="answer-item">38. a) - Clima reactivo</div>
+            <div class="answer-item">39. c) - Overhead</div>
+            <div class="answer-item">40. b) - 2 propiedades</div>
         </div>
 
         <!-- CONSEJOS -->
         <div class="tips">
-            <h3>💡 Consejos para el Estudio</h3>
+            <h3>Consejos para el Estudio</h3>
             <ul>
-                <li><strong>Definiciones clave:</strong> Memoriza las definiciones de Tanenbaum y Coulouris sobre sistemas distribuidos</li>
-                <li><strong>Diferencias:</strong> Comprende bien Sistema vs Aplicación, y Centralizado vs Distribuido</li>
-                <li><strong>Laboratorio:</strong> Entiende el rol de cada VM (VM1=DNS, VM2=Web, VM3=Cliente) y el flujo de comunicación</li>
-                <li><strong>Características:</strong> Transparencia de ubicación, escalabilidad, separación de responsabilidades</li>
-                <li><strong>Componentes:</strong> Sistema (hardware, OS, middleware) vs Aplicación (lógica de negocio)</li>
-                <li><strong>Flujo DNS:</strong> Siempre primero DNS query/response, luego HTTP request/response</li>
+                <li><strong>Falacias:</strong> 8 en total. Memorízalas.</li>
+                <li><strong>CAP:</strong> P es obligatorio → solo 2 de 3.</li>
+                <li><strong>Concurrencia:</strong> Actores (mensajes), Reactivos (eventos), Hilos (bloqueo por red).</li>
+                <li><strong>gRPC:</strong> Rápido. <strong>MQTT:</strong> Ligero IoT.</li>
             </ul>
         </div>
     </div>
@@ -608,15 +696,17 @@
             q6: 'b', q7: 'a', q8: 'b', q9: 'b', q10: 'c',
             q11: 'c', q12: 'b', q13: 'c', q14: 'c', q15: 'b',
             q16: 'b', q17: 'b', q18: 'c', q19: 'b', q20: 'c',
-            q21: 'c', q22: 'b', q23: 'b', q24: 'b', q25: 'c'
+            q21: 'c', q22: 'b', q23: 'b', q24: 'b', q25: 'c',
+            q26: 'b', q27: 'c', q28: 'a', q29: 'b', q30: 'c',
+            q31: 'a', q32: 'b', q33: 'c', q34: 'b', q35: 'a',
+            q36: 'c', q37: 'b', q38: 'a', q39: 'c', q40: 'b'
         };
 
         function gradeExam() {
             let score = 0;
             let answered = 0;
-            const total = 25;
+            const total = 40;
 
-            // Revisar cada pregunta
             for (let i = 1; i <= total; i++) {
                 const questionName = 'q' + i;
                 const selected = document.querySelector(`input[name="${questionName}"]:checked`);
@@ -639,68 +729,36 @@
                 }
             }
 
-            // Mostrar resultados
-            const resultsDiv = document.getElementById('results');
-            const scoreDiv = document.getElementById('score');
-            const feedbackDiv = document.getElementById('feedback');
-
             if (answered < total) {
-                alert(`Por favor responde todas las preguntas. Has respondido ${answered} de ${total}.`);
+                alert(`Faltan respuestas. Has contestado ${answered} de ${total}.`);
                 return;
             }
 
             const percentage = (score / total * 100).toFixed(1);
-            scoreDiv.innerHTML = `${score} / ${total} (${percentage}%)`;
+            document.getElementById('score').innerHTML = `${score} / ${total} (${percentage}%)`;
 
-            let feedback = '';
-            if (percentage >= 90) {
-                feedback = '🎉 ¡Excelente! Dominas muy bien el tema.';
-            } else if (percentage >= 75) {
-                feedback = '👍 ¡Muy bien! Buen conocimiento del tema.';
-            } else if (percentage >= 60) {
-                feedback = '📚 Bien, pero revisa los temas donde fallaste.';
-            } else {
-                feedback = '📖 Necesitas estudiar más. Repasa el material.';
-            }
+            let feedback = percentage >= 90 ? '¡Excelente!' : 
+                          percentage >= 75 ? '¡Muy bien!' : 
+                          percentage >= 60 ? 'Bien, revisa errores.' : 
+                          'Estudia más.';
 
-            feedbackDiv.innerHTML = `<p style="font-size: 1.2em; text-align: center; margin-top: 10px;">${feedback}</p>`;
-            resultsDiv.classList.add('show');
-
-            // Scroll a resultados
-            resultsDiv.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            document.getElementById('feedback').innerHTML = `<p style="font-size:1.2em;text-align:center;margin-top:10px;">${feedback}</p>`;
+            document.getElementById('results').classList.add('show');
+            document.getElementById('results').scrollIntoView({ behavior: 'smooth' });
         }
 
         function showAnswers() {
-            const answerKey = document.getElementById('answerKey');
-            if (answerKey.style.display === 'none') {
-                answerKey.style.display = 'block';
-                answerKey.scrollIntoView({ behavior: 'smooth' });
-            } else {
-                answerKey.style.display = 'none';
-            }
+            const key = document.getElementById('answerKey');
+            key.style.display = key.style.display === 'none' ? 'block' : 'none';
+            if (key.style.display === 'block') key.scrollIntoView({ behavior: 'smooth' });
         }
 
         function resetExam() {
-            // Limpiar selecciones
-            document.querySelectorAll('input[type="radio"]').forEach(radio => {
-                radio.checked = false;
-            });
-
-            // Limpiar clases
-            document.querySelectorAll('.question').forEach(q => {
-                q.classList.remove('correct', 'incorrect');
-            });
-
-            // Ocultar explicaciones
-            document.querySelectorAll('.answer-explanation').forEach(exp => {
-                exp.classList.remove('show');
-            });
-
-            // Ocultar resultados
+            document.querySelectorAll('input[type="radio"]').forEach(r => r.checked = false);
+            document.querySelectorAll('.question').forEach(q => q.classList.remove('correct', 'incorrect'));
+            document.querySelectorAll('.answer-explanation').forEach(e => e.classList.remove('show'));
             document.getElementById('results').classList.remove('show');
             document.getElementById('answerKey').style.display = 'none';
-
-            // Scroll al inicio
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
     </script>
