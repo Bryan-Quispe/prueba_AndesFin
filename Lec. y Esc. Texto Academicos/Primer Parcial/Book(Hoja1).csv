@@ -1,0 +1,94 @@
+;;;;"Conjuntos de tráfico DDoS y benchmarks de tráfico IoT/Red (el artículo indexado indica uso de datos con múltiples tipos de ataque; los nombres exactos de todos los datasets no aparecen en el resumen público).";;
+;;;;;;
+;;;;;;
+;;;;;;
+;;;;;;
+;;;;;;
+;Autor;Año;Técnica;Dataset;Métrica Usada;Resultado
+1;Miaolei Deng, Chuanchuan Sun, Yupei Kan, Haihang Xu, Xin Zhou, Shaojun Fan;2024;Deep Belief Network (DBN),   Equalization Loss v2 (EQL v2), Broad Learning System (BLS);CICIDS2017, CICIDS2018;Accuracy, Recall, Tasa de Falsos Positivos;Accuracy de 0.99240, Recall de 0.98579, Tasa de Falsos Positivos 0.014, 
+2;Vanlalruata Hnamte, Ashfaq Ahmad Najar, Hong Nhung-Nguyen, Jamal Hussain, Manohar Naik Sugali;2024;Deep Learning (DL), Deep Neural Networks (DNN);InSDN, CICDS2018, Kaggle DDoS;Accuracy, Loss Rate, Recall, Precision, F1-Score, Training Time, Inference Time;"InSDN: Accuracy de 99.98%, Loss de 0.0052, Recall de 99.98%, Precision de 99.97%, F1 Score de 99.97%, Training de 4.00 s, Inference de 3.37 s
+
+CICIDS2018: Accuracy de 100%, Loss de 0.0000, Recall de 100%, Precision de 100%, F1 Score de 100%, Training de 15.00 s, Inference de 9.75 s
+
+Kaggle DDoS: Accuracy de 99.99%, Loss de 0.0000, Recall de 99.99%, Precision de 99.99%, F1 Score de 99.99%, Training de 171.00 s, Inference de 117.09 s"
+3;Shahadate Rezvy, Miltos Petridis, Aboubaker Lasebae, y Tahmina Zebin;2025;IDS framework that integrates Federated Learning (FL), Explainable Artificial Intelligence (XAI), and Hyperband-based hyperparameter optimization within a Transformer architecture;CICIDS2017, CICIDS2018;Accuracy, F1-Score y Training time;"En CICIDS2017, 99.03% de Accuracy y F1-Score de 0.99.
+                                                                   En CICIDS2018, 98.75% de Accuracy y F1-Score de 0.98. 
+
+El tiempo de entrenamiento se redujo en más del 80% en comparación con modelos centralizados."
+4;Kunsan Zhang, Renguang Zheng, Chaopeng Li, Song Zhang, Xinyi Wu, Shidan Sun, Jiawen Yang, Jiachun Zheng;2025;"Res-based and
+lightweight
+SE-DWNet";"NSL-KDD,
+CICIDS2018,
+ToN-IoT";Accuracy, Precision, Recall, F1 score;Accuracy de 99.64%, Precision de 99.63%, Recall de 99.64%, F1-Score de 99.64%
+5;Rajesh Bingu, Salina Adinarayana, Jagjit Singh Dhatterwal, Sadam Kavitha, Eswar Patnala, Hrushikesava Raju Sangaraju;2024;Autoencoder Convolutional neural network (AE+CNN), Random forest K-means clustering assisted deep neural network (RF+K-means+DNN), Autoencoder K-means clustering assisted long short term memory (AE+K-means+LSTM), Alexnet+Bi-GRU, AE+Alexnet+Bi-GRU, Wild horse AlexNet assisted Bi-directional Gated Recurrent Unit (WABi-GRU).;CICIDS2018, NSL-KDD, UNSW-NB15, ToN-IoT;Accuracy, Precision, F1 score, Detection rate;WABI-GRU: Accuracy de 99.988%, Precision de 99.874%, F1-Score de 99.834%, Detection rate de 99.824%
+6;Mohammad Shamim Ahsan, Salekul Islam, Swakkhar Shatabda;2025;metaheuristics-based and machine learning-driven;"NSL-KDD, KDDCup-99, UNSW-NB15,
+CICIDS2017, BoT-IoT,
+ToN-IoT, N-BaloT";Accuracy, F1-score, Recall, Tasa de falsos positivos;DTL-IDS: Accuracy de 100%, F1-Score de 100%
+7;Abdulrahman Saad Alqahtani;2024;convolutional neural network (CNN), Pascal Triangle method;CICIDS2018;Accuracy, Precision, Recall y F1-score.;Accuracy de 99.16%, Precision de 99.20%, Recall de 99.63% y F1-score de 98.76%.
+8;Yao Xiao, Chunying Kang, Hongchen Yu, Tao Fan, Haofang Zhang;2022;"Elevated Harris Hawks
+optimization (EHHO), Gated recurrent unit (GRU)";UNSW-NB15, NSL-KDD, CICIDS2018;Accuracy, Precision, Recall, F1 score, Tasa de falsos positivos;Con NSL-KDD: Accuracy de 82.47%, Precision de 96.23%, Recall de 72.02%, F1-score de 82.38%
+9;Hassan Zohaib, Bukhari Wajahat Anwaar, Sikander Ammar, Bashir Umair, Malik Hassaan;2025;Deep Belief Network (DBN), Principal Component Analysis (PCA), Synthetic Minority Over-sampling Technique (SMOTE);NSL-KDD, CSE-CIC-IDS2018;Accuracy, False Positive Rate;En NSL-KDD: 98.75% de Accuracy y 0.01 de Tasa de Falsos Positivos
+10;Deepthi Reddy Dasari, G. Hima Bindu;2025;NLF-DMIC (nonnegative latent factor dimensionality-minimizing intraclass compactness), Decision Tree (DT),  Random Forest (RF), Synthetic Minority Over-sampling Technique (SMOTE);CICIDS-2018, Car-Hacking dataset;Accuracy, False Positive Rate;"En CICIDS2018: Accuracy de 98.68%
+
+En Car-Hacking dataset: Accuracy de  98.87%"
+11;"Mouhammd Alkasassbeh;
+Ebtehal H. Omoush;
+Mohammad Almseidin;
+Amjad Aldweesh";2025;Deep Q-Networks (DQN) (Reinforcement Learning);UGRansome dataset;Accuracy, F1-score, Recall;Binary Classification (Zero-day split): 95.9% Accuracy, F1-score: 0.96.
+12;"Amjad Albashayreh;
+Saleh Al-Sharaeh;
+Yahya Tashtoush;
+Plamen Zahariev";2025;Bidirectional Long Short-Term Memory (BiLSTM), Gated Recurrent Unit (GRU), Multi-Layer Perceptron (MLP) (Deep Learning);DDoS2019 benchmark;Recall;Binary Classification: BiLSTM y GRU lograron el recall más alto (99.98%). Multi-attack Classification: MLP superó con 99.04% recall.
+13;"Somaya Eltanbouly;
+Jezia Zakraoui;
+Abdulaziz Al-Ali;
+Abdelhak Belhi;
+Sandy Rahme;
+Abdelaziz Bouras";2025;Machine learning (ML) and deep learning (DL);CICIDS-2017 dataset.;Detección (Performance) y Eficiencia Computacional;Los hallazgos resaltan la necesidad de mejorar las técnicas de transformación de datos para NIDS más robustos y prácticos.
+14;"Jalal Ghadermazi;
+Soumyadeep Hore;
+Ankit Shah;
+Nathaniel D. Bastian";2025;Graph Transformer-Based Autoencoder (GTAE-IDS) (Unsupervised Graph Neural Network);"CIC-IDS2017, 
+CIC-IDS2018, 
+CIC-IDS2019";Accuracy, GTAE-IDS (nuevo modelo propuesto);Logró más del 98% de precisión en la identificación de actividades maliciosas.
+15;"Davide Di Monda;
+Antonio Montieri;
+Valerio Persico;
+Pasquale Voria;
+Matteo De Ieso;
+Antonio Pescapè";2024;Few-Shot Class-Incremental Learning (FSCIL) basado en Rethinking Few-Shot (RFS);CSE CIC-IDS2018 IoT-NID;F1-score;Retiene conocimiento previo (más de 94% F1-score) y se adapta a nuevos ataques con pocas muestras (más de 98% F1-score).
+16;"Yam Sharon;
+David Berend;
+Yang Liu;
+Asaf Shabtai;
+Yuval Elovici";2022;Long Short-Term Memory (LSTM) (Deep Neural Network);Kitsune dataset, CIC-IDS2017 dataset;Tasa de éxito de evasión;Logró una tasa de éxito de evasión promedio del 99.99% contra tres NIDS de última generación.
+17;"Imtiaz Ullah;
+Qusay H. Mahmoud";2021;Convolutional Neural Networks (CNN) en 1D, 2D y 3D (Deep Learning), Transfer Learning;BoT-IoT, IoT Network Intrusion, MQTT-IoT-IDS2020, y IoT-23;Accuracy, Precision, Recall, F1 score;Los modelos propuestos de clasificación binaria y multiclase lograron alta accuracy, precision, recall y F1 score en comparación con implementaciones existentes.
+18;"Laurens Le Jeune;
+Toon Goedemé;
+Nele Mentens";2021;Machine Learning (ML) (para Detección Basada en Mal Uso);DARPA1998, KDD Cup 1999, NSL-KDD,  ISCX2012, UNSW-NB15, CICIDS2017;Detection score, Identification score (dos métricas nuevas propuestas);Los resultados experimentales igualan y superan el estado del arte.
+19;"Ziadoon Kamil Maseer;
+Robiah Yusof;
+Nazrulazhar Bahaman;
+Salama A. Mostafa;
+Cik Feresa Mohd Foozy";2021;Artificial Neural Network (ANN), Decision Tree (DT), k-Nearest Neighbor (k-NN), Naive Bayes (NB), Random Forest (RF), Support Vector Machine (SVM), Convolutional Neural Network (CNN), Expectation-Maximization (EM), k-means, Self-Organizing Maps (SOM) (ML/DL);CICIDS2017 dataset;True positive/negative rates, Accuracy, Precision, Recall, F-Score, Training and testing time;Los modelos k-NN-AIDS, DT-AIDS y NB-AIDS obtuvieron los mejores resultados, demostrando mayor capacidad para detectar ataques web.
+20;"Dilara Gümü?ba?;
+Tulay Y?ld?r?m;
+Angelo Genovese;
+Fabio Scotti";2021;Survey (Encuesta/Revisión);"AWID2018,
+CICIDS2017,
+KDD99,
+NSL-KDD,
+Kyoto,
+UNSW-NB15";Intrusion detection mechanisms, Performance results, Limitations;Proporciona una hoja de ruta para comprender el potencial de los métodos DL para ciberseguridad e IDS y un análisis detallado de los datasets de referencia utilizados.
+21;Sayed Mahmoud Said El, Nhien-An Le-Khac, M.A. Azer & A.D. Jurcut;2022;Modelo DL basado en LSTM + Autoencoder, junto con selección de características (IG y RF) para detección de DDoS en SDN.;No se logró ubicar claramente qué dataset específico usan (artículo indica SDN, flujos);Métricas típicas de detección de anomalías;"Este extracto proviene de una revista académica titulada ""IEEE Transactions on Cognitive Communications and Networking"", que se centra en un artículo escrito por Sayed MLe-Khac, NAzer M y Jurcut A"
+22;Wa’ad H. Aljuaid & Sultan S. Alshamrani;2024;Modelo basado en CNN (deep-learning) para IDS en computación en la nube;Utiliza el dataset CSE?CIC?IDS2018.;Accuracy, precision, recall; Se presenta también con su título en inglés. La fuente se enfoca en el desarrollo de un sistema de detección de intrusiones utilizando metodologías de Aprendizaje Profundo
+23;"Daoqi Han; Honghui Li; Xueliang Fu; Shuncheng Zhou";2024;Método de selección de características propuesto XRDI (fusión de 4 algoritmos de importancia de característica) + clasificadores ML: Decision Tree (DT), Random Forest (RF), SVM, Logistic Regression (LR). Evaluación también en entorno SDN/Mininet en tiempo real.;InSDN, CICIDS2017, CICIDS2018 (experimentos en los tres conjuntos y pruebas en simulador SDN).;Accuracy, Precision, Recall, F1-score (y tiempo de detección).;"Con todas las 77 características las accuracy alcanzaron 99.98% (InSDN), 99.97% (CICIDS2017) y 100% (CICIDS2018). Con la selección XRDI mantienen o mejoran la precisión mientras reducen el tiempo de detección; p. ej. DT con dataset reducido: Acc 99.88%, Prec 99.80%, Rec 99.84%, F1 99.82% (comparación y mejoras detalladas en el artículo)."
+24;"Rajesh Bingu; Salina Adinarayana; Jagjit Singh Dhatterwal; Sadam Kavitha; Eswar Patnala";2024;"Comparación y análisis de desempeño entre varios métodos profundos/híbridos: AE+CNN; RF+K-means+DNN; AE+K-means+LSTM; AlexNet+Bi-GRU; AE+AlexNet+Bi-GRU; WABi-GRU (Wild-horse AlexNet + Bi-GRU).";CICIDS2018, UNSW-NB15, NSL-KDD y ToN-IoT.;Accuracy, Precision, Recall, F1-score (análisis multiclasificación).;El modelo WABi-GRU obtuvo las mejores cifras reportadas: Accuracy ? 99.890% (CICIDS2018), 99.7% (NSL-KDD), 99.53% (UNSW-NB15) y 99.988% (ToN-IoT). Los autores concluyen que las variantes con AlexNet+Bi-GRU (especialmente WABi-GRU) muestran el mejor rendimiento global.
+25;"Meaad Ahmed; Qutaiba Alasad; Jiann-Shiun Yuan; Mohammed Alawad";2024;"Evaluación de cuatro ataques adversariales (GAN, ZOO, KDE, DeepFool) + modelo defensivo de entrenamiento adversarial con DL. 
+MDPI";ADFA?LD, CSE?CIC?IDS2018, CICIDS2019;Accuracy (antes y después del ataque/defensa);"El ataque DeepFool y KDE fueron los más fuertes; con la defensa adversarial entrenada con DeepFool-AEs la resiliencia del modelo mejoró significativamente."
+26;"Houssam Zouhri; Ali Idri; Hajar Hakkoum";2024;"Reducción de dimensionalidad aplicada a sistemas ML opacos de detección de ataques; estudio de interpretabilidad usando técnicas FI, SHAP + varios modelos";No se especifica un dataset público concreto en la fuente ;MSE, RMSE, MAE, MAPE, R²;"La reducción de características de 28 a 6 produjo una caída menor al 5% en desempeño para modelos menos lineales; para RF la caída fue ~0.7% en R²."
+27;Archana R. Laddhad y Gurveen Vaseer;2025;Hybrid Convolutional-Attention Recurrent Network (HCARN): Integra capas convolucionales para extracción de características espaciales, mecanismos de atención para enfatizar características críticas y capas recurrentes BiLSTM ;CSE-CIC-IDS2018: Dataset a gran escala con más de 80 características por muestra, que incluye tráfico de red anotado con tipos de ataques (DoS, DDoS, fuerza bruta, infiltración) y tráfico benigno. ;Accuracy, Precision, Recall, F1-score, Specificity, Matthews Correlation Coefficient (MCC), ROC-AUC, Average Precision (AP), matrices de confusión.;Validación cruzada K-fold: Accuracy = 94.7%, F1-scores: 0.90 (mayor), 0.85 (moderado), 0.96 (menor).
+28;"Vinothini J; Srie Vidhya Janani E.";2025;Lightweight EfficientNet (modelo CNN eficiente) para detección de intrusiones + Adaptive Sparse Bayesian Optimization (ASBO) para ajuste de hiperparámetros en tiempo real, diseñado para minimizar impacto en QoS en entornos cloud.;Experimentos con tráfico de red generado y conjuntos de referencia para IDS ;Accuracy, Precision, Recall, F1-score, latencia y métricas QoS (latencia/throughput).;"El enfoque logra detección precisa manteniendo baja sobrecarga en QoS; ASBO reduce tiempo de optimización y recursos computacionales frente a optimizadores densos"
+29;"Yifan Fan; Hao Ma; Yiying Zhang; Siwei Li; Xiaoyan Guo; Ben Wang";2025;Transformador mejorado con realce temporal de características (continuos/temporal encoding + selección de características temporal) — variante mejorada tipo ContiFormer/Time-Enhanced Transformer para detección de DDoS.;Conjuntos de tráfico DDoS y benchmarks de tráfico IoT/Red ;"Accuracy, Precision, Recall, F1-score, tasa de falsas alarmas; además evaluación en rendimiento temporal/tiempo de detección.";"l modelo basado en Transformer mejorado supera a técnicas clásicas en detección de DDoS (mejores scores de precisión y F1 y buen manejo de secuencias temporales); los números exactos están en el texto completo del artículo"
+30;"Mustafa Muslih Shwaysh; Abadal-Salam T. Hussain; Hazry Desa";2025;Adaptive Hybrid Information Gain + Autoencoder para selección de características, combinado con Ensemble Recurrent Extreme Learning Machine (Recurrent ELM ensemble) para clasificación en IDS (flujo: Information Gain ? Autoencoder (reducción) ? Ensemble Recurrent ELM);Evaluaciones reportadas sobre conjuntos estándar de IDS;Accuracy, Precision, Recall, F1-score, tiempo de entrenamiento/inferencia.;"La combinación adaptativa reduce dimensionalidad manteniendo (o mejorando ligeramente) la detección; el ensemble Recurrent-ELM mejora la precisión en detección en tiempo real frente a clasificadores individuales"
