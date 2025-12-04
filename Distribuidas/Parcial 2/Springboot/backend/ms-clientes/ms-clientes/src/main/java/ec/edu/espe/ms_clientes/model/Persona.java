@@ -11,11 +11,11 @@ import java.util.UUID;
 
 @Entity
 @Table(name = "persona")
-@Data
+@Data  //Evita los getters y setters
 @SuperBuilder
-@AllArgsConstructor
-@NoArgsConstructor
-@Inheritance(strategy = InheritanceType.JOINED)
+@AllArgsConstructor //tener todos los cosntructores pro defecto
+@NoArgsConstructor //Permite crear constructores vacios
+@Inheritance(strategy = InheritanceType.JOINED)  // Las tablas derivadas seran de 1 a 1 en la BD
 public abstract class Persona {
 
     @Id

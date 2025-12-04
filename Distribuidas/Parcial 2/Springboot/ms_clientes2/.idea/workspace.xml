@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="6b229332-7808-4727-865d-cd11cb333467" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../backend/ms-clientes/ms-clientes/src/main/java/ec/edu/espe/ms_clientes/dto/mapper/PersonaMapper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../backend/ms-clientes/ms-clientes/src/main/java/ec/edu/espe/ms_clientes/dto/request/AutoFamiliarRequestDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../backend/ms-clientes/ms-clientes/src/main/java/ec/edu/espe/ms_clientes/dto/request/MotoRequestDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../backend/ms-clientes/ms-clientes/src/main/java/ec/edu/espe/ms_clientes/dto/request/PersonaJuridicaRequestDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../backend/ms-clientes/ms-clientes/src/main/java/ec/edu/espe/ms_clientes/dto/request/PersonaNaturalRequestDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../backend/ms-clientes/ms-clientes/src/main/java/ec/edu/espe/ms_clientes/dto/request/PersonaRequestDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../backend/ms-clientes/ms-clientes/src/main/java/ec/edu/espe/ms_clientes/dto/request/VehiculoRequestDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../backend/ms-clientes/ms-clientes/src/main/java/ec/edu/espe/ms_clientes/dto/response/PersonaResponseDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../backend/ms-clientes/ms-clientes/src/main/java/ec/edu/espe/ms_clientes/dto/response/VehiculoResponseDto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../backend/ms-clientes/ms-clientes/src/main/java/ec/edu/espe/ms_clientes/model/AutoFamiliar.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../backend/ms-clientes/ms-clientes/src/main/java/ec/edu/espe/ms_clientes/model/Moto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../backend/ms-clientes/ms-clientes/src/main/java/ec/edu/espe/ms_clientes/model/TipoAuto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../backend/ms-clientes/ms-clientes/src/main/java/ec/edu/espe/ms_clientes/model/TipoCombustible.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../backend/ms-clientes/ms-clientes/src/main/java/ec/edu/espe/ms_clientes/model/TipoMoto.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../backend/ms-clientes/ms-clientes/src/main/java/ec/edu/espe/ms_clientes/model/Vehiculo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/ms-clientes/ms-clientes/src/main/java/ec/edu/espe/ms_clientes/MsClientesApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/ms-clientes/ms-clientes/src/main/java/ec/edu/espe/ms_clientes/MsClientesApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/ms-clientes/ms-clientes/src/main/java/ec/edu/espe/ms_clientes/model/ActiEconomica.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/ms-clientes/ms-clientes/src/main/java/ec/edu/espe/ms_clientes/model/ActiEconomica.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/ms-clientes/ms-clientes/src/main/java/ec/edu/espe/ms_clientes/model/Persona.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/ms-clientes/ms-clientes/src/main/java/ec/edu/espe/ms_clientes/model/Persona.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../backend/ms-clientes/ms-clientes/src/main/java/ec/edu/espe/ms_clientes/model/PersonaJuridica.java" beforeDir="false" afterPath="$PROJECT_DIR$/../backend/ms-clientes/ms-clientes/src/main/java/ec/edu/espe/ms_clientes/model/PersonaJuridica.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../ms-clientes.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../zone_core.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../Software Seguro/Parcial 1/Malware/MalwareSS" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Software Seguro/Parcial 1/Malware/MalwareSS" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../../../Software Seguro/Parcial 1/PROYECTO/Chat_Seguro" beforeDir="false" afterPath="$PROJECT_DIR$/../../../../Software Seguro/Parcial 1/PROYECTO/Chat_Seguro" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../../../.." />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 4
+}</component>
+  <component name="ProjectId" id="36LH2mF1LedQJ6CYWslECakMyDQ" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;com.intellij.ml.llm.matterhorn.ej.ui.settings.DefaultModelSelectionForGA.v1&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/rquis/OneDrive/Escritorio/7mo-Semestre/Distribuidas/Parcial 2/Springboot/ms_clientes2&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;to.speed.mode.migration.done&quot;: &quot;true&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-bf35d07a577b-intellij.indexing.shared.core-IU-252.28238.7" />
+        <option value="bundled-js-predefined-d6986cc7102b-a71380e98a7c-JavaScript-IU-252.28238.7" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="6b229332-7808-4727-865d-cd11cb333467" name="Changes" comment="" />
+      <created>1764778727186</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1764778727186</updated>
+      <workItem from="1764778728358" duration="183000" />
+      <workItem from="1764779343570" duration="41000" />
+      <workItem from="1764779396494" duration="10000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>
