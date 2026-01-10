@@ -1,4 +1,16 @@
-FROM ubuntu:latest
-LABEL authors="rquis"
+version: '3.8'
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: parkin_users_db
+    environment:
+      POSTGRES_DB: db_parkin_users
+      POSTGRES_USER: parkin
+      POSTGRES_PASSWORD: qwerty123
+    ports:
+      - "5433:5432"
+    volumes:
+      - postgres_users_data:/var/lib/postgresql/data
 
-ENTRYPOINT ["top", "-b"]
+volumes:
+  postgres_users_data:

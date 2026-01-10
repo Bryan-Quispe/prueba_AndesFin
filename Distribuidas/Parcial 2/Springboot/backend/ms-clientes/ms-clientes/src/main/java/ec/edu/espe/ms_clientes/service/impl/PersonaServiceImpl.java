@@ -9,6 +9,7 @@ import ec.edu.espe.ms_clientes.model.PersonaNatural;
 import ec.edu.espe.ms_clientes.repository.PersonaRepository;
 import ec.edu.espe.ms_clientes.service.PersonaService;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -16,23 +17,31 @@ import java.util.UUID;
 
 @Service
 @Transactional
-@RequiredArgsConstructor //Inyeccion de dependencias
+@RequiredArgsConstructor
+@Slf4j
 public class PersonaServiceImpl implements PersonaService {
 
     private final PersonaRepository personaRepository;
-
     private final PersonaMapper personaMapper;
 
     @Override
     public PersonaResponseDto createPersonaNatual(PersonaNaturalRequestDto dtoNatural) {
-        PersonaNatural personaNatural = personaMapper.toEntity(dtoNatural);//Creo a Entidad
-        if(personaNatural.validarIdentificacion()){ //Valido la cedula
-            throw new RuntimeException("Identificacion incorrecta");
+
+        if (personaRepository.existsByIdentificacion(dtoNatural.getIdentificacion())) {
+            log.error("Ya existe una persona con la identificación {}", dtoNatural.getIdentificacion());
+            throw new RuntimeException("Ya existe una persona con la identificación " + dtoNatural.getIdentificacion());
         }
 
-        Persona guardado = personaRepository.save(personaNatural); //GUARDO EN EL RPOSITORIO
+        PersonaNatural personaNatural = personaMapper.toEntity(dtoNatural);
 
-        return personaMapper.toDto(guardado); //retorno el dto
+        if (!personaNatural.validarIdentificacion()) {
+            throw new RuntimeException("La identificación es incorrecta");
+        }
+
+        Persona guardado = personaRepository.save(personaNatural);
+        log.info("Persona guardada exitosamente");
+
+        return personaMapper.toDto(guardado);
     }
 
     @Override

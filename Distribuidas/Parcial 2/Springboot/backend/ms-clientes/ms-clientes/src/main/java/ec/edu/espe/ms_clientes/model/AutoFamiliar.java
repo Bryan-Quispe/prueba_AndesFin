@@ -11,6 +11,8 @@ import lombok.experimental.SuperBuilder;
 
 @Entity
 @Table(name = "auto_familiar")
+@DiscriminatorValue("AUTO_FAMILIAR")
+@PrimaryKeyJoinColumn(name = "vehiculo_id")
 @Data //todos los getter y setter
 @AllArgsConstructor
 @NoArgsConstructor

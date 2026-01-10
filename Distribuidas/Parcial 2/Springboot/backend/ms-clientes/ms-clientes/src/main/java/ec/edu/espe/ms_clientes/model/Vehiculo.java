@@ -12,6 +12,7 @@ import java.util.UUID;
 @Entity
 @Table(name = "vehiculo")
 @Inheritance(strategy = InheritanceType.JOINED)
+@DiscriminatorColumn(name = "tipo_vehiculo", discriminatorType = DiscriminatorType.STRING)
 @NoArgsConstructor
 @AllArgsConstructor
 @SuperBuilder
@@ -19,7 +20,7 @@ import java.util.UUID;
 public abstract class Vehiculo {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
 
     @Column(nullable = false,unique = true)

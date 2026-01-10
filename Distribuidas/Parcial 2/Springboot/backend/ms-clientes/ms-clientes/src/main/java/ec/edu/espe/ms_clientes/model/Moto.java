@@ -6,6 +6,8 @@ import lombok.experimental.SuperBuilder;
 
 @Entity
 @Table(name = "moto")
+@DiscriminatorValue("MOTO")
+@PrimaryKeyJoinColumn(name = "vehiculo_id")
 @EqualsAndHashCode(callSuper = true) //Trayendo las propiedades del padre
 @NoArgsConstructor
 @AllArgsConstructor

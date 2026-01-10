@@ -2,9 +2,7 @@ package ec.edu.espe.ms_clientes.model;
 
 
 import ec.edu.espe.ms_clientes.utils.ValidacionIdentificador;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -16,6 +14,8 @@ import java.time.LocalDate;
 @Entity
 @Data
 @Table(name = "persona_jutidica")
+@DiscriminatorValue("JURIDICA")
+@PrimaryKeyJoinColumn(name = "persona_id")
 @SuperBuilder
 @AllArgsConstructor
 @NoArgsConstructor
@@ -36,13 +36,7 @@ public  class PersonaJuridica extends Persona{
 
     @Override
     public boolean validarIdentificacion() {
-        String ruc = this.getIdentificacion();
-
-        // Las empresas SOLO tienen RUC de 13 dígitos
-        if (ruc == null || ruc.length() != 13) return false;
-
-        // Probamos si es Privada (9) O si es Pública (6)
-        return ValidacionIdentificador.validarRucSociedadPrivada(ruc) ||
-                ValidacionIdentificador.validarRucSociedadPublica(ruc);
+        return true;
     }
+
 }

@@ -16,10 +16,11 @@ import java.util.UUID;
 @AllArgsConstructor //tener todos los cosntructores pro defecto
 @NoArgsConstructor //Permite crear constructores vacios
 @Inheritance(strategy = InheritanceType.JOINED)  // Las tablas derivadas seran de 1 a 1 en la BD
+@DiscriminatorColumn(name = "tipo_persona", discriminatorType = DiscriminatorType.STRING)
 public abstract class Persona {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private UUID id;
 
     @Column(unique = true, nullable = false)

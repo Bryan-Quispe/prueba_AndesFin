@@ -1,9 +1,7 @@
 package ec.edu.espe.ms_clientes.model;
 
 import ec.edu.espe.ms_clientes.utils.ValidacionIdentificador;
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
@@ -15,6 +13,8 @@ import java.time.LocalDate;
 @Entity
 @Data
 @Table(name = "persona_natural")
+@DiscriminatorValue("NATURAL")
+@PrimaryKeyJoinColumn(name = "persona_id")
 @SuperBuilder
 @AllArgsConstructor
 @NoArgsConstructor
@@ -34,17 +34,6 @@ public class PersonaNatural extends Persona{
 
     @Override
     public boolean validarIdentificacion() {
-        String id = this.getIdentificacion(); // Heredado del padre
-        if (id == null) return false;
-
-        // Si tiene 10 dígitos, validamos como Cédula
-        if (id.length() == 10) {
-            return ValidacionIdentificador.validarCedula(id);
-        }
-        // Si tiene 13 dígitos, validamos como RUC Natural
-        else if (id.length() == 13) {
-            return ValidacionIdentificador.validarRucPersonaNatural(id);
-        }
 
         return false;
     }
