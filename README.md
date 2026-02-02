@@ -172,13 +172,12 @@ andesfin-microservice/
 ### 🐳 Ejecución con Docker Compose (Recomendado)
 
 ```bash
-# 1. Navegar al directorio del proyecto
-cd andesfin-microservice
 
-# 2. Levantar todos los servicios
+
+# 1. Levantar todos los servicios
 docker-compose up --build
 
-# 3. La aplicación estará disponible en:
+# 2. La aplicación estará disponible en:
 #    http://localhost:3000
 ```
 
