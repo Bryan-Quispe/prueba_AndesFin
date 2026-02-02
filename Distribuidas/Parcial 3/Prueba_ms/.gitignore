@@ -1,0 +1,44 @@
+# Dependencias
+node_modules/
+npm-debug.log
+yarn-error.log
+package-lock.json
+yarn.lock
+
+# Compilación y salida
+dist/
+build/
+.next/
+
+# Variables de entorno
+.env
+.env.local
+.env.*.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Prisma
+.prisma/
+
+# Testing
+coverage/
+.nyc_output/
+
+# Archivos del sistema
+Thumbs.db
+
+# Logs
+logs/
+*.log
+lerna-debug.log*
+
+# Temporales
+tmp/
+temp/
+*.tmp
